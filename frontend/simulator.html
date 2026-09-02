@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIANGULATION SIMULATOR — NODE-X-LOGISTICS | Working-Capital Decision Engine</title>
+  <meta name="description" content="Supply Chain Triangulation Simulation Engine. Multi-dimensional trade-off plotting: Quality vs Time vs Cost. IEEE HACKVERSE 2026.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Saira+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Leaflet 1.9.4 High-Performance Interactive Map Engine -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+
+  <!-- Full-Page Persistent Background + Dark Scrim Layer (Consistent Across All Pages) -->
+  <div id="siteBg" aria-hidden="true"><div id="siteBgScrim"></div></div>
+
+  <!-- Top Navigation (56px Minimalist Black Bar) -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-left-cluster">
+        <a class="nav-link" href="/" style="text-decoration: none;">OVERVIEW</a>
+        <a class="nav-link" href="/problem" style="text-decoration: none;">THE PROBLEM</a>
+        <a class="nav-link" href="/about" style="text-decoration: none;">ABOUT US</a>
+      </div>
+
+      <div class="wordmark-center" onclick="window.location.href='/'">
+        <span class="wordmark">NODE-X-LOGISTICS</span>
+      </div>
+
+      <div class="nav-right-cluster">
+        <span class="status-badge-mono">IEEE HACKVERSE 2026</span>
+        <a href="/problem" class="button-secondary button-secondary-small" style="text-decoration: none;">
+          PROBLEM STATEMENT
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="app-main" style="padding-top: 56px;">
+
+    <!-- INTERACTIVE SIMULATOR STUDIO -->
+    <section id="simView" class="view-section active">
+      <div class="simulator-section">
+        
+        <!-- Toolbar Band (Minimalist Luxury Glass) -->
+        <div class="sim-toolbar-band">
+          <div class="toolbar-cluster">
+            <span class="caption-uppercase">VOICE UNDERWRITER:</span>
+            <label class="switch" for="voiceToggle" aria-label="Toggle Voice Underwriter">
+              <input type="checkbox" id="voiceToggle" checked onchange="onVoiceToggleChange(this)">
+              <div class="slider">
+                <div class="circle">
+                  <svg class="cross" viewBox="0 0 365.696 365.696" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.77-12.5-45.246 0L9.398 24.46c-12.5 12.5-12.5 32.77 0 45.247l113.132 113.153L9.398 295.99c-12.5 12.5-12.5 32.77 0 45.25l15.082 15.08c12.5 12.5 32.77 12.5 45.25 0l113.13-113.133 113.13 113.13c12.5 12.5 32.77 12.5 45.25 0l15.08-15.08c12.5-12.5 12.5-32.77 0-45.25l-113.13-113.133z"></path>
+                  </svg>
+                  <svg class="checkmark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                  </svg>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <div class="toolbar-cluster">
+            <button class="button-secondary button-secondary-small" onclick="resetNetworkAndLedger()">
+              RESET TO BASELINE
+            </button>
+          </div>
+        </div>
+
+        <!-- Triangulation Graph Single Mode Indicator -->
+        <div class="single-tab-banner">
+          <span class="single-tab-text">TRIANGULATION GRAPH (QUALITY // TIME // COST)</span>
+        </div>
+
+        <!-- ================================================================
+             GLOBAL LOGISTICS ROUTE INTELLIGENCE & TRIANGULATION GRAPH
+             ================================================================ -->
+        <div class="studio-pane active" id="studioPane_topology">
+          
+          <!-- GLOBAL ROUTE INTELLIGENCE SYSTEM (150 CHECKPOINTS) -->
+          <div class="route-intelligence-deck">
+            <!-- Centered Header with React Bits Decrypted Text -->
+            <div class="pathway-deck-header decrypted-header-centered">
+              <div class="decrypted-text-container">
+                <span class="caption-uppercase decrypted-eyebrow">IEEE HACKVERSE 2026 // 150 GLOBAL LOGISTICS NODES</span>
+                <h1 class="decrypted-text" id="decryptedTitle" data-text="GLOBAL ROUTE INTELLIGENCE & PATH OPTIMIZER">GLOBAL ROUTE INTELLIGENCE &amp; PATH OPTIMIZER</h1>
+                <p class="decrypted-subtext">
+                  Interactive world transportation network connecting 50 Sea Ports/Straits, 50 Air Cargo Hubs, and 50 Rail Terminals. Hybrid AI constraint extraction + deterministic NetworkX multi-objective path optimization dynamically bypasses geopolitical blockades, climate disruptions, and canal chokepoints.
+                </p>
+                <div class="decrypted-badge-wrap">
+                  <span class="status-badge-mono" style="color: #00f0ff; border-color: rgba(0, 240, 255, 0.4);">
+                    ● 150 GLOBAL NODES ONLINE (50 SEA • 50 RAIL • 50 AIR)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark World Map Canvas Viewport (150 Nodes) -->
+            <div id="worldMapContainer" class="world-map-wrapper">
+              <!-- Dynamically rendered by route-map.js -->
+            </div>
+
+            <!-- Spacious Horizontal Routing Control Panel (Directly Below Map) -->
+            <div class="route-control-panel-horizontal">
+              <div class="control-grid-horizontal">
+                <!-- FROM Searchable Combobox (150 Nodes) -->
+                <div class="ctrl-field-group searchable-dropdown-group" id="fromComboboxGroup">
+                  <label class="ctrl-label" for="fromNodeSearchInput">
+                    <span class="dot-indicator dot-origin"></span> ORIGIN [FROM]
+                  </label>
+                  <div class="searchable-combobox-wrapper" id="fromComboboxWrapper">
+                    <div class="combobox-input-box" id="fromComboboxInputBox">
+                      <span class="combobox-selected-icon" id="fromSelectedIcon">⚓</span>
+                      <input
+                        type="text"
+                        id="fromNodeSearchInput"
+                        class="combobox-search-input"
+                        placeholder="Search port, city, country, or code..."
+                        autocomplete="off"
+                        spellcheck="false"
+                      />
+                      <button type="button" class="combobox-clear-btn" id="fromClearBtn" title="Clear">✕</button>
+                      <button type="button" class="combobox-toggle-btn" id="fromToggleBtn" title="Show all">▾</button>
+                    </div>
+                    <div class="combobox-dropdown-panel" id="fromDropdownPanel">
+                      <div class="combobox-filter-tabs">
+                        <button type="button" class="combo-tab active" data-type="ALL" data-target="from">ALL (150)</button>
+                        <button type="button" class="combo-tab" data-type="SEA" data-target="from">⚓ SEA</button>
+                        <button type="button" class="combo-tab" data-type="AIR" data-target="from">✈️ AIR</button>
+                        <button type="button" class="combo-tab" data-type="RAIL" data-target="from">🚆 RAIL</button>
+                      </div>
+                      <div class="combobox-items-list" id="fromItemsList"></div>
+                    </div>
+                  </div>
+                  <select id="fromNodeSelect" class="route-select-dropdown" style="display: none;">
+                    <!-- Populated and synchronized by route-map.js -->
+                  </select>
+                </div>
+
+                <!-- TO Searchable Combobox (150 Nodes) -->
+                <div class="ctrl-field-group searchable-dropdown-group" id="toComboboxGroup">
+                  <label class="ctrl-label" for="toNodeSearchInput">
+                    <span class="dot-indicator dot-dest"></span> DESTINATION [TO]
+                  </label>
+                  <div class="searchable-combobox-wrapper" id="toComboboxWrapper">
+                    <div class="combobox-input-box" id="toComboboxInputBox">
+                      <span class="combobox-selected-icon" id="toSelectedIcon">⚓</span>
+                      <input
+                        type="text"
+                        id="toNodeSearchInput"
+                        class="combobox-search-input"
+                        placeholder="Search destination port, city, code..."
+                        autocomplete="off"
+                        spellcheck="false"
+                      />
+                      <button type="button" class="combobox-clear-btn" id="toClearBtn" title="Clear">✕</button>
+                      <button type="button" class="combobox-toggle-btn" id="toToggleBtn" title="Show all">▾</button>
+                    </div>
+                    <div class="combobox-dropdown-panel" id="toDropdownPanel">
+                      <div class="combobox-filter-tabs">
+                        <button type="button" class="combo-tab active" data-type="ALL" data-target="to">ALL (150)</button>
+                        <button type="button" class="combo-tab" data-type="SEA" data-target="to">⚓ SEA</button>
+                        <button type="button" class="combo-tab" data-type="AIR" data-target="to">✈️ AIR</button>
+                        <button type="button" class="combo-tab" data-type="RAIL" data-target="to">🚆 RAIL</button>
+                      </div>
+                      <div class="combobox-items-list" id="toItemsList"></div>
+                    </div>
+                  </div>
+                  <select id="toNodeSelect" class="route-select-dropdown" style="display: none;">
+                    <!-- Populated and synchronized by route-map.js -->
+                  </select>
+                </div>
+
+
+                <!-- Natural Language Disruption Problem Input -->
+                <div class="ctrl-field-group ctrl-problem-field">
+                  <label class="ctrl-label" for="routeProblemInput">
+                    <span class="caption-uppercase" style="color: #38bdf8;">⚡ DISRUPTION / OPERATIONAL CONSTRAINTS</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="routeProblemInput"
+                    class="route-problem-textbox"
+                    placeholder="e.g., Strait of Hormuz closed due to war, or Suez Red Sea blocked, or urgent air cargo..."
+                    value="Oil shipment from India to Europe. Avoid Strait of Hormuz and Persian Gulf conflict zone."
+                  />
+                </div>
+
+                <!-- Action Button -->
+                <div class="ctrl-btn-wrap">
+                  <button id="analyzeRouteBtn" class="button-primary btn-analyze-route" onclick="window.RouteMap.analyzeCurrentSelection()">
+                    ANALYZE OPTIMAL PATH ↗
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quick Scenario Preset Chips Row -->
+              <div class="preset-shocks-strip">
+                <span class="preset-strip-title">CRISIS PRESETS:</span>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('hormuz')">
+                  🚨 Strait of Hormuz Conflict
+                </button>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('suez')">
+                  🛑 Suez & Red Sea Blockade
+                </button>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('panama')">
+                  🌊 Panama Canal Drought
+                </button>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('airspace')">
+                  ✈️ Eurasian Airspace Closure
+                </button>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('malacca')">
+                  ⚓ Malacca Piracy Surge
+                </button>
+                <button class="preset-shock-pill" onclick="window.RouteMap.applyPresetScenario('urgent_pharma')">
+                  ⚡ Critical Velocity Pharma
+                </button>
+              </div>
+            </div>
+
+            <!-- Triangulation Trade-off Radar Bar (QCT Triangle) -->
+            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: center; background: rgba(12, 12, 16, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 4px; padding: 18px; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: center; align-items: center;">
+                <svg id="radarSvg" width="240" height="240" viewBox="0 0 260 260" style="max-width: 100%;"></svg>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div>
+                  <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 2px;">TRIANGULATION RADAR // QCT TRIANGLE</span>
+                  <span class="caption-uppercase" style="font-size: 9.5px; color: var(--muted-soft);">QUALITY // COST // TIME PARETO-TRADE-OFF FRONTIER</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-top: 1px solid var(--hairline); padding-top: 10px; font-size: 12px; font-family: var(--font-mono, monospace);">
+                  <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.06);">
+                    <span style="color: #10b981; font-size: 9px; display: block; margin-bottom: 4px;">QUALITY RETENTION (Q)</span>
+                    <strong id="radarQualityLabel" style="color: #ffffff; font-size: 15px;">96.5%</strong>
+                  </div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.06);">
+                    <span style="color: #38bdf8; font-size: 9px; display: block; margin-bottom: 4px;">TRANSIT VELOCITY (T)</span>
+                    <strong id="radarTimeLabel" style="color: #ffffff; font-size: 15px;">78% (14d)</strong>
+                  </div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.06);">
+                    <span style="color: #f59e0b; font-size: 9px; display: block; margin-bottom: 4px;">COST EFFICIENCY (C)</span>
+                    <strong id="radarCostLabel" style="color: #ffffff; font-size: 15px;">82% ($42.0k)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Intelligence Summary & Reasoning Panel -->
+            <div id="routeIntelligenceSummary" class="route-intelligence-summary-deck">
+              <!-- Rendered dynamically by route-map.js -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NODE DETAILS POPUP MODAL (Brief Quantitative Breakdown + Close Button) -->
+  <div id="nodeDetailsModal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeNodeDetailsModal()">
+    <div class="modal-bugatti-card" style="max-width: 560px; border-color: rgba(255, 255, 255, 0.22); background: rgba(14, 14, 18, 0.96);">
+      
+      <!-- Modal Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding-bottom: 14px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span class="status-badge-mono" id="modalSectionBadge">SECTION 01 // ORIGIN</span>
+            <span class="status-badge-mono" id="modalStateBadge" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4);">NOMINAL</span>
+          </div>
+          <h3 class="title-md" id="modalNodeName" style="color: #ffffff; margin: 0;">ORGANIC COTTON FARMS</h3>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeNodeDetailsModal()" aria-label="Close modal">
+          ✕ CLOSE
+        </button>
+      </div>
+
+      <!-- Modal Content: 2-Column Metrics Breakdown -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0;">
+        
+        <!-- Physical Telemetry Card -->
+        <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 14px;">
+          <span class="caption-uppercase" style="color: var(--muted-soft); display: block; margin-bottom: 8px; font-size: 9px;">PHYSICAL TELEMETRY</span>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">LEAD TIME:</span>
+              <strong id="modalLeadTime" style="color: #38bdf8;">8.0 DAYS</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">TRANSIT DELAY:</span>
+              <strong id="modalDelay" style="color: #ffffff;">0 DAYS</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">QUALITY INDEX:</span>
+              <strong id="modalQuality" style="color: #10b981;">98.0%</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">BOTTLENECK:</span>
+              <strong id="modalBottleneck" style="color: #10b981;">CLEAR (NO)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Underwriting Card -->
+        <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 14px;">
+          <span class="caption-uppercase" style="color: var(--muted-soft); display: block; margin-bottom: 8px; font-size: 9px;">WORKING CAPITAL UNDERWRITING</span>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">CAPITAL NEED:</span>
+              <strong id="modalCost" style="color: #ffffff;">$140,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">DYNAMIC RATE:</span>
+              <strong id="modalRate" style="color: #38bdf8;">6.80% APR</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">MAX SAFE LTV:</span>
+              <strong id="modalLtv" style="color: #10b981;">85% ($119,000)</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--muted);">FACILITY:</span>
+              <strong id="modalInstrument" style="color: #ffffff; font-size: 10px;">PO FINANCING</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer Actions -->
+      <div style="display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 14px; margin-top: 4px;">
+        <button class="button-secondary button-secondary-small" onclick="window.closeNodeDetailsModal()">
+          CLOSE
+        </button>
+        <button class="button-primary button-primary-small" id="modalActionBtn" onclick="window.financeCurrentModalNode()">
+          FINANCE FACILITY
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bugatti Footer (Austere Black with Centered Wordmark) -->
+  <footer class="bugatti-footer">
+    <div class="footer-inner">
+      <div class="footer-columns">
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">PROBLEM STATEMENT</span>
+          <p class="body-sm">IEEE HACKVERSE 2026 — Building a Competitive Capital Market for Supply-Chain Working Capital.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">ARCHITECTURE</span>
+          <p class="body-sm">Supply Chain Triangulation Graph (Quality // Time // Cost) + Dynamic Working Capital Intelligence Engine.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TECH STACK</span>
+          <p class="body-sm">Python FastAPI, NetworkX, D3/SVG Triangulation Radar, Web Speech Voice Synthesis, Vanta.js 3D WebGL Canvas.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TEAM & SOURCE</span>
+          <p class="body-sm">TECHIEMECHIE (VIT Chennai Freshers). <a href="https://www.linkedin.com/company/143088470" target="_blank" rel="noopener noreferrer" class="text-link" style="font-size: 11px;">Connect on LinkedIn</a></p>
+        </div>
+      </div>
+
+      <div class="footer-legal-row">
+        <span class="caption-uppercase" style="font-size: 10px;">COPYRIGHT 2026 NODE-X-LOGISTICS. ALL RIGHTS RESERVED.</span>
+        <span class="wordmark" style="font-size: 12px; letter-spacing: 5px;">NODE-X-LOGISTICS</span>
+        <span class="caption-uppercase" style="font-size: 10px;">IEEE HACKVERSE 2026 // REQUIREMENT 1-8 COMPLIANT</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js + Vanta 3D NET Background Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="/js/vanta.net.min.js"></script>
+  <script src="/js/background.js"></script>
+
+  <!-- Node-X Simulation & Triangulation Core Scripts -->
+  <script src="/js/mock-engine.js"></script>
+  <script src="/js/graph.js"></script>
+  <script src="/js/pathway-optimizer.js"></script>
+  <script src="/js/crisis-scenarios.js"></script>
+  <script src="/js/ai-route-advisor.js"></script>
+  <!-- Leaflet 1.9.4 Interactive World Map Engine -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="/js/route-map.js"></script>
+  <script src="/js/app.js"></script>
+
+  <!-- Auto-Initialize Simulator -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof initApp === "function") {
+        initApp();
+      }
+    });
+  </script>
+</body>
+</html>

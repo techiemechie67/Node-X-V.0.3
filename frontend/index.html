@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NODE-X-LOGISTICS — Autonomous Working-Capital Engine</title>
+  <meta name="description" content="An austere luxury-engineered working-capital financing engine for global supply chains. Physical state is the input to the financial engine. IEEE HACKVERSE 2026.">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Saira+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Full-Page Persistent Background + Dark Scrim Layer -->
+  <div id="siteBg" aria-hidden="true"><div id="siteBgScrim"></div></div>
+
+  <!-- Top Navigation (56px Minimalist Black Bar) -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-left-cluster">
+        <a class="nav-link active" href="/" style="text-decoration: none;">OVERVIEW</a>
+        <a class="nav-link" href="/problem" style="text-decoration: none;">THE PROBLEM</a>
+        <a class="nav-link" href="/about" style="text-decoration: none;">ABOUT US</a>
+      </div>
+
+      <div class="wordmark-center" onclick="window.location.href='/'">
+        <span class="wordmark">NODE-X-LOGISTICS</span>
+      </div>
+
+      <div class="nav-right-cluster">
+        <span class="status-badge-mono">IEEE HACKVERSE 2026</span>
+        <a href="/simulator" class="button-primary button-primary-small" style="text-decoration: none;">
+          LAUNCH SIMULATOR
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="app-main">
+    
+    <!-- OVERVIEW / EDITORIAL SHOWCASE -->
+    <section id="homeView" class="view-section active">
+      
+      <!-- Hero Photo Band -->
+      <section class="hero-photo-band" id="heroBand">
+        <div class="hero-inner-wrap">
+          <p class="caption-uppercase stack-sm" style="text-align: center;">IEEE HACKVERSE 2026</p>
+          <h1 class="display-xl">
+            THE PHYSICAL SUPPLY CHAIN STATE<br>
+            IS THE INPUT TO THE FINANCIAL ENGINE
+          </h1>
+          <p class="body-md hero-lead-text">
+            Every physical milestone — PO issuance, transit delay, warehouse dwell duration, and delivery realization — directly and automatically updates working-capital financing terms. Zero lag, zero duplicate collateral pledges, 100% deterministic agentic execution.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="/simulator" class="button-primary" style="text-decoration: none;">
+              ENTER LIVE SIMULATION
+            </a>
+          </div>
+
+          <!-- Spec Cells Grid (Hero Metrics) -->
+          <div class="hero-spec-grid">
+            <div class="spec-cell">
+              <span class="caption-uppercase">ACTIVE CAPITAL EXPOSURE</span>
+              <span class="spec-value" id="heroExposure">$1,184,500</span>
+              <span class="caption-uppercase spec-cell-sub">4 Active Facilities</span>
+            </div>
+            <div class="spec-cell">
+              <span class="caption-uppercase">WEIGHTED COST OF CAPITAL</span>
+              <span class="spec-value" id="heroWacc">7.42%</span>
+              <span class="caption-uppercase spec-cell-sub">Dynamic Spread</span>
+            </div>
+            <div class="spec-cell">
+              <span class="caption-uppercase">CASH CONVERSION CYCLE</span>
+              <span class="spec-value" id="heroCcc">44.2 DAYS</span>
+              <span class="caption-uppercase spec-cell-sub">Cascading DAG</span>
+            </div>
+            <div class="spec-cell">
+              <span class="caption-uppercase">ANTI-DOUBLE-FINANCING</span>
+              <span class="spec-value" id="heroLedgerStatus" style="font-size: 22px;">100% LOCKED</span>
+              <span class="caption-uppercase spec-cell-sub">Zero Duplicates</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3-Stakeholder Model Section -->
+      <section id="stakeholdersSection" class="section-band">
+        <div class="section-header-wrap">
+          <span class="caption-uppercase">TRI-PARTY CONSENSUS</span>
+          <h2 class="display-lg" style="margin-top: 10px;">ENGINEERED FOR 3 SUPPLY CHAIN STAKEHOLDERS</h2>
+          <p class="body-md" style="max-width: 820px; margin-top: 14px; font-size: 17px;">
+            Traditional working capital is fragmented across disconnected balance sheets. Node-X unifies suppliers, operators, and capital markets onto an autonomous, physics-driven ledger.
+          </p>
+        </div>
+
+        <div class="stakeholder-grid">
+          <!-- Stakeholder 1 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-card-top">
+              <span class="caption-uppercase" style="color: #ffffff;">TIER-1 SUPPLIERS</span>
+              <span class="caption-uppercase">PO FINANCING</span>
+            </div>
+            <h3 class="title-md">PURCHASE ORDER CREDIT LINE</h3>
+            <p class="body-md">
+              Credit lines are automatically issued upon Purchase Order verification against historical supplier reliability scores (<code>loanAmount = base_credit * supplier_reliability</code>). Raw material liquidity is unlocked without traditional bank friction.
+            </p>
+            <ul class="feature-list">
+              <li>Deterministic reliability underwriting</li>
+              <li>Pre-shipment liquidity scaling up to 85% LTV</li>
+              <li>Instant liquidation upon transit handover</li>
+            </ul>
+          </div>
+
+          <!-- Stakeholder 2 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-card-top">
+              <span class="caption-uppercase" style="color: #ffffff;">LOGISTICS & WAREHOUSING</span>
+              <span class="caption-uppercase">IN-TRANSIT ABL</span>
+            </div>
+            <h3 class="title-md">DYNAMIC ASSET-BACKED LEVERAGE</h3>
+            <p class="body-md">
+              Physical transit and warehousing state continually dictates borrowing limits. As route volatility spikes, risk scores recalculate and LTV contracts dynamically. Storage dwell actively adjusts degradation discounts.
+            </p>
+            <ul class="feature-list">
+              <li>Dynamic ABL spreads scaling with bottlenecks</li>
+              <li>Dwell degradation adjusting inventory leverage</li>
+              <li>Liquidity runway threshold breach alerts</li>
+            </ul>
+          </div>
+
+          <!-- Stakeholder 3 -->
+          <div class="stakeholder-card">
+            <div class="stakeholder-card-top">
+              <span class="caption-uppercase" style="color: #ffffff;">INSTITUTIONAL LENDERS</span>
+              <span class="caption-uppercase">INVOICE FACTORING</span>
+            </div>
+            <h3 class="title-md">ANTI-DOUBLE-FINANCING CONSENSUS</h3>
+            <p class="body-md">
+              Upon final delivery realization, accounts receivable are factored at dynamic discount rates that absorb cumulative delay. Prior tier liens are settled in full, with cryptographic ledger locks guaranteeing zero duplicate collateral claims.
+            </p>
+            <ul class="feature-list">
+              <li>Cryptographic SHA-256 batch lien verification</li>
+              <li>Rejection of duplicate collateral claims (Req #7)</li>
+              <li>Automated multi-tier waterfall repayment</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Execution Loop Section -->
+      <section class="section-band">
+        <div class="section-header-wrap">
+          <span class="caption-uppercase">AUTONOMOUS ENGINE</span>
+          <h2 class="display-lg" style="margin-top: 10px;">HOW PHYSICAL EVENTS DRIVE FINANCIAL DECISIONS</h2>
+        </div>
+
+        <div class="step-rows-container">
+          <div class="step-row">
+            <span class="step-index">PHASE 01</span>
+            <span class="title-sm">PHYSICAL DISRUPTION</span>
+            <p class="body-md">A port blockade, customs bottleneck, or dwell delay strikes a specific node in the global supply graph.</p>
+          </div>
+          <div class="step-row">
+            <span class="step-index">PHASE 02</span>
+            <span class="title-sm">DAG PROPAGATION</span>
+            <p class="body-md">NetworkX topological traversal cascades delays and cost absorption to all downstream dependent nodes in sub-5ms.</p>
+          </div>
+          <div class="step-row">
+            <span class="step-index">PHASE 03</span>
+            <span class="title-sm">AGENTIC REFINANCING</span>
+            <p class="body-md">Financial engine reprices dynamic interest rates (+bps), contracts LTV leverage, and issues explainability cards.</p>
+          </div>
+          <div class="step-row">
+            <span class="step-index">PHASE 04</span>
+            <span class="title-sm">LEDGER VALIDATION</span>
+            <p class="body-md">In-memory ledger checks batch lien registry; blocks duplicate collateral leverage with cryptographic consensus.</p>
+          </div>
+          <div class="step-row">
+            <span class="step-index">PHASE 05</span>
+            <span class="title-sm">CASH REALIZATION</span>
+            <p class="body-md">Delivery node factors receivables, settles prior running balances, and releases collateral locks in full.</p>
+          </div>
+        </div>
+
+        <!-- Simulator Launch CTA Banner -->
+        <div style="margin-top: 64px; text-align: center;">
+          <a href="/simulator" class="button-primary" style="text-decoration: none; padding: 18px 36px; font-size: 14px; letter-spacing: 3px;">
+            LAUNCH CAPITAL SIMULATOR NOW ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- OUR STACK & INSPIRATION (Interactive LogoLoop Sector Switcher) -->
+      <section class="stack-inspiration-section" id="stack-inspiration">
+        <div class="stack-inspiration-inner">
+          <span class="caption-uppercase">OUR STACK & INSPIRATION</span>
+          <h2 class="display-lg" style="margin-top: 10px;">
+            TECHNOLOGIES WE USE & COMPANIES WE ADMIRE
+          </h2>
+          <p class="body-md" style="max-width: 640px; margin: 16px auto 0; font-size: 17px;">
+            A glimpse into the tools that helped us build and the products that inspired us.
+          </p>
+
+          <!-- Segmented Tab / Sector Switcher -->
+          <div class="stack-tab-segmented-control" role="tablist" aria-label="Our Stack and Inspiration Sectors">
+            <button
+              class="stack-tab-btn active"
+              id="tabBtnTech"
+              role="tab"
+              aria-selected="true"
+              aria-controls="stackLogoLoopContainer"
+              onclick="switchStackTab('tech')"
+            >
+              <svg class="stack-tab-icon" viewBox="0 0 24 24" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              TECH
+            </button>
+            <button
+              class="stack-tab-btn"
+              id="tabBtnCompanies"
+              role="tab"
+              aria-selected="false"
+              aria-controls="stackLogoLoopContainer"
+              onclick="switchStackTab('companies')"
+            >
+              <svg class="stack-tab-icon" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M3 21h18M3 7v14M21 7v14M6 3h12a3 3 0 0 1 3 3v1H3V6a3 3 0 0 1 3-3z"/>
+                <line x1="9" y1="10" x2="9" y2="14"/>
+                <line x1="15" y1="10" x2="15" y2="14"/>
+              </svg>
+              COMPANIES
+            </button>
+          </div>
+
+          <!-- Sector Dynamic Sub-Heading -->
+          <div class="stack-subheading-wrap">
+            <span class="stack-subheading" id="stackSubHeading">TECH WE USE</span>
+          </div>
+
+          <!-- React Bits LogoLoop Container (Vanilla Engine Host) -->
+          <div id="stackLogoLoopContainer" style="margin-top: 10px;"></div>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- Bugatti Footer (Austere Black with Centered Wordmark) -->
+  <footer class="bugatti-footer">
+    <div class="footer-inner">
+      <div class="footer-columns">
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">PROBLEM STATEMENT</span>
+          <p class="body-sm">IEEE HACKVERSE 2026 — Building a Competitive Capital Market for Supply-Chain Working Capital.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">ARCHITECTURE</span>
+          <p class="body-sm">Directed Acyclic Graph (DAG) + Telemetry Telematics + Dynamic Interest Yield Curve + Consensus Registry.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TECH STACK</span>
+          <p class="body-sm">Python FastAPI, NetworkX, D3.js, Web Speech Voice Synthesis, Vanta.js 3D WebGL Canvas.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TEAM & SOURCE</span>
+          <p class="body-sm">TECHIEMECHIE (VIT Chennai Freshers). <a href="https://www.linkedin.com/company/143088470" target="_blank" rel="noopener noreferrer" class="text-link" style="font-size: 11px;">Connect on LinkedIn ↗</a></p>
+        </div>
+      </div>
+
+      <div class="footer-legal-row">
+        <span class="caption-uppercase" style="font-size: 10px;">COPYRIGHT © 2026 NODE-X-LOGISTICS. ALL RIGHTS RESERVED.</span>
+        <span class="wordmark" style="font-size: 12px; letter-spacing: 5px;">NODE-X-LOGISTICS</span>
+        <span class="caption-uppercase" style="font-size: 10px;">IEEE HACKVERSE 2026 • REQUIREMENT 1-8 COMPLIANT</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js + Vanta 3D NET Background Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="./js/vanta.net.min.js?v=2.2"></script>
+  <script src="./js/background.js?v=2.2"></script>
+  <script src="./js/logo-loop.js?v=2.2"></script>
+
+</body>
+</html>

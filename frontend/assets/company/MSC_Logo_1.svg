@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" fill="none">
+  <text x="16" y="34" fill="#FFFFFF" font-family="'Arial Black', Impact, sans-serif" font-size="28" font-weight="900" letter-spacing="3">msc</text>
+  <circle cx="118" cy="25" r="14" stroke="#FDB913" stroke-width="2.5" fill="none"/>
+  <path d="M110 25 Q118 17 126 25 Q118 33 110 25" fill="#FDB913"/>
+  <line x1="118" y1="9" x2="118" y2="41" stroke="#FDB913" stroke-width="2"/>
+</svg>

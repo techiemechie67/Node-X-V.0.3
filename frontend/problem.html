@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE PROBLEM — Building a Competitive Capital Market for Supply-Chain Working Capital | NODE-X-LOGISTICS</title>
+  <meta name="description" content="An interactive intelligence guide explaining IEEE HACKVERSE 2026 Building a Competitive Capital Market for Supply-Chain Working Capital.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/problem.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/problem.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/problem.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Saira+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Full-Page Persistent Background + Dark Scrim Layer -->
+  <div id="siteBg" aria-hidden="true"><div id="siteBgScrim"></div></div>
+
+  <!-- Top Navigation (56px Minimalist Black Bar) -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-left-cluster">
+        <a class="nav-link" href="/" style="text-decoration: none;">OVERVIEW</a>
+        <a class="nav-link active" href="/problem" style="text-decoration: none;">THE PROBLEM</a>
+        <a class="nav-link" href="/about" style="text-decoration: none;">ABOUT US</a>
+      </div>
+
+      <div class="wordmark-center" onclick="window.location.href='/'">
+        <span class="wordmark">NODE-X-LOGISTICS</span>
+      </div>
+
+      <div class="nav-right-cluster">
+        <span class="status-badge-mono">IEEE HACKVERSE 2026</span>
+        <a href="/simulator" class="button-primary button-primary-small" style="text-decoration: none;">
+          LAUNCH SIMULATOR
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sub-Sticky Anchor Bar -->
+  <header class="problem-subnav">
+    <div class="problem-subnav-inner">
+      <a class="subnav-link active" href="#hero">01. OVERVIEW</a>
+      <a class="subnav-link" href="#what-is-sc">02. SUPPLY CHAIN</a>
+      <a class="subnav-link" href="#asset-states">03. ASSET STATES</a>
+      <a class="subnav-link" href="#financing-gap">04. THE GAP</a>
+      <a class="subnav-link" href="#risk-evolution">05. RISK EVOLUTION</a>
+      <a class="subnav-link" href="#missing-layer">06. INTELLIGENCE LAYER</a>
+      <a class="subnav-link" href="#agentic-loop">07. AGENTIC LOOP</a>
+      <a class="subnav-link" href="#financing-transition">08. INSTRUMENTS</a>
+      <a class="subnav-link" href="#collateral-awareness">09. COLLATERAL DEFENSE</a>
+      <a class="subnav-link" href="#event-reassessment">10. EVENTS</a>
+      <a class="subnav-link" href="#data-arch">11. ARCHITECTURE</a>
+      <a class="subnav-link" href="#asset-to-cash">12. REALIZATION</a>
+      <a class="subnav-link" href="#challenge">13. THE CHALLENGE</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-main">
+
+    <!-- 1. HERO SECTION -->
+    <section class="problem-hero-wrap" id="hero">
+      <div class="hero-pill-badge">
+        <span class="dot-live"></span>
+        <span>IEEE HACKVERSE 2026</span>
+      </div>
+
+      <h1 class="problem-hero-title">
+        Capital Should Move With<br>The Supply Chain.
+      </h1>
+
+      <p class="problem-hero-lead">
+        Supply-chain assets create economic value long before they become financially recognizable. The challenge is to continuously track that evolving asset and determine how it should be financed at every stage.
+      </p>
+
+      <div class="problem-hero-ctas">
+        <a href="#what-is-sc" class="button-primary" style="text-decoration: none; padding: 14px 28px;">
+          EXPLORE THE SUPPLY CHAIN ↓
+        </a>
+        <a href="#financing-gap" class="button-secondary" style="text-decoration: none; padding: 14px 28px;">
+          SEE THE FINANCING GAP ↗
+        </a>
+      </div>
+
+      <!-- Animated Horizontal Supply-Chain Lifecycle -->
+      <div class="lifecycle-stream-card">
+        <div class="stream-header">
+          <div>
+            <span class="caption-uppercase" style="color: #ffffff;">INTERACTIVE PHYSICAL LIFECYCLE STREAM</span>
+            <span class="caption-uppercase" style="margin-left: 12px; color: var(--muted-soft);">
+              Click any stage to inspect physical reality vs. financial eligibility
+            </span>
+          </div>
+          <span class="status-badge-mono">9 DYNAMIC STAGES</span>
+        </div>
+
+        <div class="stream-nodes-row" id="streamNodesRow">
+          <!-- Populated dynamically by problem.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SECTION: WHAT IS A SUPPLY CHAIN? -->
+    <section class="problem-section" id="what-is-sc">
+      <span class="section-eyebrow">FOUNDATIONAL UNDERSTANDING</span>
+      <h2 class="section-headline">WHAT IS A SUPPLY CHAIN?</h2>
+      <p class="section-description">
+        Before capital and financing can be understood, we must observe how goods physically transform and travel across the globe. A supply chain is not a document — it is a continuous physical relay of material, labor, and custody.
+      </p>
+
+      <div class="problem-card-grid-3">
+        <div class="problem-glass-card">
+          <span class="card-tag">PHYSICAL FLOW</span>
+          <h3 class="card-title">1. MATERIAL TRANSFORMATION</h3>
+          <p class="card-text">
+            Raw natural resources are extracted, processed, refined, and fabricated into sub-components, sub-assemblies, and final consumer or industrial products.
+          </p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">LOGISTICAL FLOW</span>
+          <h3 class="card-title">2. CUSTODY & TRANSPORT</h3>
+          <p class="card-text">
+            Goods transition through ports, shipping vessels, air hubs, customs clearances, and regional fulfillment warehouses before arriving at buyer receiving facilities.
+          </p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">FINANCIAL FLOW</span>
+          <h3 class="card-title">3. WORKING CAPITAL RELAY</h3>
+          <p class="card-text">
+            Every operational step requires cash for wages, energy, raw inputs, and tariffs. Traditional buyers only pay 60–90 days after delivery, creating a severe working capital deficit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION: ONE ASSET. MANY STATES. -->
+    <section class="problem-section" id="asset-states">
+      <span class="section-eyebrow">MULTI-DIMENSIONAL REASONING</span>
+      <h2 class="section-headline">ONE ASSET. MANY STATES.</h2>
+      <p class="section-description">
+        The underlying physical asset continuously changes state. Financing eligibility and amount should not be assumed to remain constant across different physical states.
+      </p>
+
+      <div style="background: rgba(14, 14, 18, 0.7); border: 1px solid rgba(255, 255, 255, 0.10); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="caption-uppercase" id="inspStageStep" style="color: var(--link);">LIFECYCLE STAGE 01 OF 09</span>
+            <h3 class="title-md" id="inspStageTitle" style="margin-top: 4px; font-size: 26px;">Purchase Order</h3>
+          </div>
+          <span class="status-badge-mono" id="inspTraditionalText">Active Financial Milestone</span>
+        </div>
+
+        <div class="problem-card-grid-3">
+          <div class="problem-glass-card">
+            <span class="card-tag">PHYSICAL STATE</span>
+            <p class="body-sm" id="inspPhysicalText" style="color: #ffffff; min-height: 54px;">
+              Buyer issues formal purchase specification; supplier reserves factory capacity and schedules raw inputs.
+            </p>
+          </div>
+
+          <div class="problem-glass-card">
+            <span class="card-tag">FINANCIAL STATE</span>
+            <p class="body-sm" id="inspFinancialText" style="color: #ffffff; min-height: 54px;">
+              Zero cash flow realized; working capital obligation incurred by supplier.
+            </p>
+          </div>
+
+          <div class="problem-glass-card">
+            <span class="card-tag">CONTRACTUAL STATE</span>
+            <p class="body-sm" id="inspContractualText" style="color: #ffffff; min-height: 54px;">
+              Legally binding procurement agreement specifying delivery terms, price, and specs.
+            </p>
+          </div>
+        </div>
+
+        <div class="problem-card-grid-4" style="margin-top: 16px;">
+          <div class="problem-glass-card" style="padding: 18px;">
+            <span class="card-tag">EMBODIED VALUE</span>
+            <span class="title-sm" id="inspValueText" style="font-size: 14px; color: #ffffff;">Initial Economic Commitment</span>
+          </div>
+
+          <div class="problem-glass-card" style="padding: 18px;">
+            <span class="card-tag">OPERATIONAL RISK</span>
+            <span class="title-sm" id="inspRiskText" style="font-size: 14px; color: var(--warning);">High Operational Uncertainty</span>
+          </div>
+
+          <div class="problem-glass-card" style="padding: 18px;">
+            <span class="card-tag">LIQUIDITY NEED</span>
+            <span class="title-sm" id="inspLiquidityText" style="font-size: 14px; color: #ffffff;">High (Material Procurement)</span>
+          </div>
+
+          <div class="problem-glass-card" style="padding: 18px;">
+            <span class="card-tag">FINANCING POTENTIAL</span>
+            <span class="title-sm" id="inspFinancingText" style="font-size: 14px; color: var(--link);">PO Credit Line</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECTION: WHERE TRADITIONAL FINANCING BREAKS -->
+    <section class="problem-section" id="financing-gap">
+      <span class="section-eyebrow">STRUCTURAL FAILURE OF LEGACY BANKING</span>
+      <h2 class="section-headline">WHERE TRADITIONAL FINANCING BREAKS</h2>
+      <p class="section-description">
+        Traditional supply-chain financing is structured around discrete financial events such as purchase orders, invoices, and receivables. The physical asset begins creating economic value well before it reaches a financially recognisable stage.
+      </p>
+
+      <div class="problem-card-grid-2">
+        <div class="problem-glass-card" style="border-left: 3px solid #5fa657;">
+          <span class="card-tag" style="color: #5fa657;">PHYSICAL ECONOMIC LIFECYCLE</span>
+          <h3 class="card-title">CONTINUOUS VALUE CREATION</h3>
+          <p class="card-text">
+            Goods are manufactured, inspected, packed, shipped across oceans, stored in warehouses, and delivered. Physical transformation is unbroken, continuous, and compounds value every single day.
+          </p>
+          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--hairline);">
+            <span class="caption-uppercase" style="font-size: 11px; color: #ffffff;">Physical Telemetry: Continuous & Real-time</span>
+          </div>
+        </div>
+
+        <div class="problem-glass-card" style="border-left: 3px solid var(--critical);">
+          <span class="card-tag" style="color: var(--critical);">TRADITIONAL BANK FINANCING</span>
+          <h3 class="card-title">DISCRETE, FRAGMENTED MILESTONES</h3>
+          <p class="card-text">
+            Banks only recognize discrete document milestones: Purchase Order, Invoice, and Receivable. Everything in-between (60–90 days of transit, WIP, and customs) represents a massive financing blind spot.
+          </p>
+          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--hairline);">
+            <span class="caption-uppercase" style="font-size: 11px; color: var(--critical);">Financial Visibility: Blind Spot (Trapped Capital)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Animated Tracks (Section 6) -->
+      <div class="gap-tracks-container">
+        <div class="gap-track-row">
+          <div class="gap-track-label">
+            <span class="caption-uppercase" style="color: #ffffff;">1. PHYSICAL PROGRESSION (CONTINUOUS REALITY):</span>
+            <span class="status-badge-mono" style="color: #5fa657;">100% CONTINUOUS FLOW</span>
+          </div>
+          <div class="track-line-visual">
+            <div class="track-line-continuous"></div>
+          </div>
+        </div>
+
+        <div class="gap-track-row" style="margin-bottom: 0;">
+          <div class="gap-track-label">
+            <span class="caption-uppercase" style="color: #ffffff;">2. TRADITIONAL FINANCING AVAILABILITY (FRAGMENTED BLIND SPOTS):</span>
+            <span class="status-badge-mono" style="color: var(--critical);">TRAPPED CAPITAL GAPS</span>
+          </div>
+          <div class="track-line-fragmented">
+            <div class="frag-block active" style="flex: 1.2;">PO FINANCE</div>
+            <div class="frag-block gap" style="flex: 2.2;">TRAPPED CAPITAL (WIP & FABRICATION)</div>
+            <div class="frag-block gap" style="flex: 2.5;">TRAPPED CAPITAL (OCEAN FREIGHT & DWELL)</div>
+            <div class="frag-block active" style="flex: 1.5;">INVOICE FACTORING</div>
+            <div class="frag-block active" style="flex: 1.2;">SETTLED</div>
+          </div>
+        </div>
+
+        <div class="gap-callout-banner">
+          <h3 class="gap-callout-text">“VALUE IS MOVING. CAPITAL IS WAITING.”</h3>
+          <p class="body-sm" style="margin-top: 6px; color: var(--body);">
+            Businesses experience acute working-capital constraints while goods are physically moving through procurement, production, logistics, warehousing, and delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECTION: RISK CHANGES WITH THE ASSET -->
+    <section class="problem-section" id="risk-evolution">
+      <span class="section-eyebrow">QUALITATIVE RISK DYNAMICS</span>
+      <h2 class="section-headline">RISK CHANGES WITH THE ASSET</h2>
+      <p class="section-description">
+        Financing earlier in the lifecycle improves liquidity but introduces greater uncertainty. Later-stage financing has lower uncertainty but leaves valuable working capital unavailable earlier.
+      </p>
+
+      <div class="risk-matrix-wrap">
+        <div>
+          <span class="caption-uppercase" style="display: block; margin-bottom: 12px;">SELECT ASSET STAGE:</span>
+          <div class="risk-stage-selector">
+            <button class="risk-stage-btn active" onclick="selectLifecycleStage(0)">1. Purchase Order</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(1)">2. Raw Material</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(2)">3. Production (WIP)</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(3)">4. Finished Goods</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(4)">5. Shipment (Transit)</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(5)">6. Warehouse Dwell</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(6)">7. Delivery Receipt</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(7)">8. Commercial Invoice</button>
+            <button class="risk-stage-btn" onclick="selectLifecycleStage(8)">9. Receivable (Cash)</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="caption-uppercase" style="display: block; margin-bottom: 12px;">QUALITATIVE RISK / VALUE METRICS:</span>
+          <div class="risk-meters-grid">
+            <div class="meter-card">
+              <span class="meter-label">ASSET ECONOMIC VALUE</span>
+              <span class="meter-level-badge meter-level-low" id="riskMeterValue">LOW</span>
+            </div>
+
+            <div class="meter-card">
+              <span class="meter-label">UNCERTAINTY & RISK</span>
+              <span class="meter-level-badge meter-level-high" id="riskMeterRisk">HIGH</span>
+            </div>
+
+            <div class="meter-card">
+              <span class="meter-label">LIQUIDITY NEED</span>
+              <span class="meter-level-badge meter-level-high" id="riskMeterLiq">HIGH</span>
+            </div>
+
+            <div class="meter-card">
+              <span class="meter-label">FINANCING POTENTIAL</span>
+              <span class="meter-level-badge meter-level-med" id="riskMeterPot">MODERATE</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: var(--radius-md); padding: 20px;">
+            <span class="caption-uppercase" style="color: var(--muted); display: block; margin-bottom: 6px;">DYNAMIC REASONING:</span>
+            <p class="body-sm" id="riskStageExpl" style="color: #ffffff;">
+              At the PURCHASE ORDER stage, the underlying asset has accumulated initial economic commitment. Operational risk is characterized by high operational uncertainty, requiring purchase-order financing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SECTION: THE MISSING INTELLIGENCE LAYER -->
+    <section class="problem-section" id="missing-layer">
+      <span class="section-eyebrow">CORE ARCHITECTURAL THESIS</span>
+      <h2 class="section-headline">THE MISSING INTELLIGENCE LAYER</h2>
+      <p class="section-description">
+        “We need a financial layer that travels with the physical asset.” The missing capability is a system that continuously connects the physical lifecycle of an asset with its financial lifecycle.
+      </p>
+
+      <div class="stack-layers-wrap">
+        <div class="state-layer-box" id="layerPhysical">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="caption-uppercase" style="color: #5fa657;">LAYER 1: PHYSICAL STATE</span>
+            <span class="status-badge-mono">TELEMATICS & DOCKS</span>
+          </div>
+          <div class="layer-items-pills">
+            <span class="layer-item-pill">Production Progress</span>
+            <span class="layer-item-pill">Container GPS & Temperature</span>
+            <span class="layer-item-pill">Warehouse Intake Warrant</span>
+            <span class="layer-item-pill">Proof of Delivery (POD)</span>
+          </div>
+        </div>
+
+        <div class="state-layer-box" id="layerFinancial">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="caption-uppercase" style="color: var(--link);">LAYER 2: FINANCIAL STATE</span>
+            <span class="status-badge-mono">CREDIT & LIENS</span>
+          </div>
+          <div class="layer-items-pills">
+            <span class="layer-item-pill">Active Senior Facility</span>
+            <span class="layer-item-pill">Collateral Lien Registry</span>
+            <span class="layer-item-pill">Cumulative Drawdown Exposure</span>
+            <span class="layer-item-pill">Receivable Payment Timing</span>
+          </div>
+        </div>
+
+        <div class="state-layer-box" id="layerContractual">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="caption-uppercase" style="color: var(--warning);">LAYER 3: CONTRACTUAL STATE</span>
+            <span class="status-badge-mono">LEGAL COMMITMENTS</span>
+          </div>
+          <div class="layer-items-pills">
+            <span class="layer-item-pill">Purchase Order Terms</span>
+            <span class="layer-item-pill">Incoterms & Title Ownership</span>
+            <span class="layer-item-pill">Approved Commercial Invoice</span>
+            <span class="layer-item-pill">Buyer Payment Obligations</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <button class="button-primary" id="mergeLayersBtn" onclick="toggleLayerMerge()">
+            MERGE INTO UNIFIED ASSET STATE
+          </button>
+        </div>
+
+        <div id="mergedResultCard" style="display: none; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius-lg); padding: 24px; margin-top: 16px; text-align: center;">
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 8px;">RESULTING ABSTRACTION</span>
+          <h3 class="title-md" style="font-size: 22px; color: #ffffff;">UNIFIED ASSET STATE</h3>
+          <p class="body-sm" style="max-width: 680px; margin: 8px auto 0; color: var(--body);">
+            A single, continuously reconciled mathematical entity that synchronizes physical location, accumulated economic value, senior collateral liens, and contractual counterparties.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SECTION: THE AGENTIC FINANCING LOOP -->
+    <section class="problem-section" id="agentic-loop">
+      <span class="section-eyebrow">AGENTIC DECISION PIPELINE</span>
+      <h2 class="section-headline">THE AGENTIC FINANCING LOOP</h2>
+      <p class="section-description">
+        The autonomous engine continually cycles through a 9-step decision loop to assess risk, select appropriate financing instruments, determine deployable capital, and transition liens until cash settlement.
+      </p>
+
+      <div class="agentic-loop-grid" id="agenticLoopGrid">
+        <!-- Populated dynamically by problem.js -->
+      </div>
+
+      <div style="background: rgba(14, 14, 18, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-lg); padding: 28px; margin-top: 24px;">
+        <span class="caption-uppercase" id="loopDetailStep" style="color: var(--link);">DECISION NODE 01 OF 09</span>
+        <h3 class="title-md" id="loopDetailTitle" style="margin-top: 4px; font-size: 24px; color: #ffffff;">Track Asset</h3>
+        <p class="body-md" id="loopDetailText" style="margin-top: 8px; color: var(--body); font-size: 17px;">
+          Maintain a continuously evolving representation of the underlying asset by ingesting telemetry and manifests across nodes.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. SECTION: FINANCING EVOLVES WITH THE ASSET -->
+    <section class="problem-section" id="financing-transition">
+      <span class="section-eyebrow">DYNAMIC INSTRUMENT TRANSITIONS</span>
+      <h2 class="section-headline">FINANCING EVOLVES WITH THE ASSET</h2>
+      <p class="section-description">
+        Rather than locking capital into rigid silos, the system evaluates financing instruments dynamically as the physical asset transitions across custody boundaries toward cash realization.
+      </p>
+
+      <div class="problem-card-grid-4">
+        <div class="problem-glass-card">
+          <span class="card-tag">RAW / PRODUCTION</span>
+          <h4 class="card-title" style="font-size: 16px;">PO & PROCUREMENT FINANCING</h4>
+          <p class="body-sm">Unlocks pre-shipment working capital for raw material staging based on verified buyer purchase orders.</p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">OCEAN / AIR FREIGHT</span>
+          <h4 class="card-title" style="font-size: 16px;">IN-TRANSIT ASSET-BACKED LENDING</h4>
+          <p class="body-sm">Leverages bill-of-lading cargo custody and satellite telematics to maintain liquidity while goods cross borders.</p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">DISTRIBUTION HUB</span>
+          <h4 class="card-title" style="font-size: 16px;">WAREHOUSE INVENTORY ABL</h4>
+          <p class="body-sm">Finances regional stock against electronic warehouse intake receipts, factoring dwell time degradation.</p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">DELIVERY / INVOICE</span>
+          <h4 class="card-title" style="font-size: 16px;">INVOICE & RECEIVABLES FACTORING</h4>
+          <p class="body-sm">Factors approved commercial accounts receivable upon delivery acceptance, settling prior liens in full.</p>
+        </div>
+      </div>
+
+      <p class="body-sm" style="margin-top: 20px; font-style: italic; color: var(--muted-soft);">
+        *Note: Instruments are evaluated dynamically based on custody, operational risk, and legal agreements — not applied as rigid or guaranteed rules.
+      </p>
+    </section>
+
+    <!-- 9. SECTION: THE SYSTEM MUST KNOW WHAT HAS ALREADY BEEN FINANCED -->
+    <section class="problem-section" id="collateral-awareness">
+      <span class="section-eyebrow">COLLATERAL INTEGRITY & ANTI-DOUBLE-FINANCING</span>
+      <h2 class="section-headline">WHAT HAS ALREADY BEEN FINANCED?</h2>
+      <p class="section-description">
+        Continuous financing-state awareness is mandatory to prevent duplicate financing, over-leveraging, collateral disputes, and fraud across fragmented multi-lender markets.
+      </p>
+
+      <div class="problem-card-grid-3">
+        <div class="problem-glass-card" style="border-top: 2px solid var(--critical);">
+          <span class="card-tag" style="color: var(--critical);">PREVENT DUPLICATE CLAIMS</span>
+          <h3 class="card-title">CRYPTOGRAPHIC LIEN LOCKS</h3>
+          <p class="card-text">
+            Each physical batch is bound to a unique SHA-256 collateral hash. Lenders cannot register overlapping senior claims against the same inventory.
+          </p>
+        </div>
+
+        <div class="problem-glass-card" style="border-top: 2px solid var(--warning);">
+          <span class="card-tag" style="color: var(--warning);">PREVENT OVER-LEVERAGING</span>
+          <h3 class="card-title">CUMULATIVE EXPOSURE TRACKING</h3>
+          <p class="card-text">
+            The decision engine enforces conservative Loan-To-Value (LTV) limits that dynamically contract when downstream delivery risks or delays emerge.
+          </p>
+        </div>
+
+        <div class="problem-glass-card" style="border-top: 2px solid #5fa657;">
+          <span class="card-tag" style="color: #5fa657;">AUTONOMOUS SETTLEMENT</span>
+          <h3 class="card-title">WATERFALL PAYDOWN</h3>
+          <p class="card-text">
+            When invoice factoring is executed at delivery, prior in-transit and supplier liens are paid down in strict senior priority before residual cash is released.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SECTION: SUPPLY CHAIN EVENTS TRIGGER REASSESSMENT -->
+    <section class="problem-section" id="event-reassessment">
+      <span class="section-eyebrow">EVENT-DRIVEN DECISION SIMULATOR</span>
+      <h2 class="section-headline">EVENTS TRIGGER REASSESSMENT</h2>
+      <p class="section-description">
+        When an operational shock strikes the physical supply chain, the agentic engine immediately recalculates risk, reprices interest spreads, or contracts borrowing capacity.
+      </p>
+
+      <div class="events-sim-deck">
+        <div>
+          <span class="caption-uppercase" style="display: block; margin-bottom: 12px;">TRIGGER AN EVENT SCENARIO:</span>
+          <button class="event-chip-btn active" data-event="port_blockade" onclick="selectEventScenario('port_blockade')">
+            1. Red Sea Port Blockade (+14d)
+          </button>
+          <button class="event-chip-btn" data-event="prod_delay" onclick="selectEventScenario('prod_delay')">
+            2. Factory Machine Failure (+8d)
+          </button>
+          <button class="event-chip-btn" data-event="dwell_decay" onclick="selectEventScenario('dwell_decay')">
+            3. Warehouse Dwell Decay (35d)
+          </button>
+          <button class="event-chip-btn" data-event="delivery_confirm" onclick="selectEventScenario('delivery_confirm')">
+            4. Proof of Delivery Confirmed (POD)
+          </button>
+        </div>
+
+        <div class="event-pipeline-flow">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span class="caption-uppercase" id="eventPipeStage" style="color: var(--link);">Shipment (In-Transit)</span>
+            <span class="status-badge-mono" id="eventPipeAction" style="color: #ffffff;">REPRICE & DEFEND</span>
+          </div>
+
+          <h3 class="title-md" id="eventPipeTitle" style="font-size: 22px; color: #ffffff; margin-bottom: 16px;">
+            Shipment Interruption (Port Blockade)
+          </h3>
+
+          <div class="pipeline-step-item">
+            <div class="pipeline-step-dot">1</div>
+            <div>
+              <span class="caption-uppercase" style="font-size: 10px; color: var(--muted);">EVENT DETECTED:</span>
+              <p class="body-sm" id="eventPipeEvent" style="color: #ffffff;">Port of Singapore congestion adds +14 days to sea voyage.</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step-item">
+            <div class="pipeline-step-dot">2</div>
+            <div>
+              <span class="caption-uppercase" style="font-size: 10px; color: var(--muted);">ASSET STATE UPDATED:</span>
+              <p class="body-sm" id="eventPipeAsset" style="color: #ffffff;">Physical state updated: In-Transit (Delay +14d, Routing Rerouted).</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step-item">
+            <div class="pipeline-step-dot">3</div>
+            <div>
+              <span class="caption-uppercase" style="font-size: 10px; color: var(--muted);">RISK REASSESSED:</span>
+              <p class="body-sm" id="eventPipeRisk" style="color: #ffffff;">Risk score increases (Medium → High); CCC increases by 14 days.</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step-item">
+            <div class="pipeline-step-dot">4</div>
+            <div>
+              <span class="caption-uppercase" style="font-size: 10px; color: var(--muted);">FINANCING ACTION COMMITTED:</span>
+              <p class="body-sm" id="eventPipeDecision" style="color: #5fa657; font-weight: 500;">
+                REPRICE / CONTRACT LTV: Dynamic interest spread +85 bps, credit capacity adjusted to maintain capital safety.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SECTION: MANY SYSTEMS. ONE ASSET. -->
+    <section class="problem-section" id="data-arch">
+      <span class="section-eyebrow">HETEROGENEOUS DATA RECONCILIATION</span>
+      <h2 class="section-headline">MANY SYSTEMS. ONE ASSET.</h2>
+      <p class="section-description">
+        The system reconciles heterogeneous, incomplete, delayed, or conflicting information across corporate boundaries without assuming any single source is infallible.
+      </p>
+
+      <div class="arch-grid-sources">
+        <div class="arch-source-chip">ERP SYSTEMS</div>
+        <div class="arch-source-chip">PURCHASE ORDERS</div>
+        <div class="arch-source-chip">FACTORY WIP LOGS</div>
+        <div class="arch-source-chip">CARRIER TELEMATICS</div>
+        <div class="arch-source-chip">WAREHOUSE WARRANTS</div>
+        <div class="arch-source-chip">IOT SENSOR ARRAYS</div>
+        <div class="arch-source-chip">COMMERCIAL INVOICES</div>
+        <div class="arch-source-chip">FINANCIAL INSTITUTIONS</div>
+      </div>
+
+      <div class="arch-flow-arrow">▼ MULTI-SOURCE TELEMETRY INGESTION ▼</div>
+
+      <div class="arch-core-engine-box">
+        <span class="caption-uppercase" style="color: var(--link);">RECONCILIATION & CONSENSUS LAYER</span>
+        <h3 class="title-md" style="font-size: 24px; color: #ffffff; margin: 8px 0;">
+          UNIFIED ASSET STATE
+        </h3>
+        <p class="body-sm" style="max-width: 700px; margin: 0 auto; color: var(--body);">
+          Cross-verifies conflicting shipment pings, resolves timestamp discrepancies, and verifies ground-truth physical state before committing state updates.
+        </p>
+
+        <div class="arch-flow-arrow" style="margin: 18px 0 12px;">▼</div>
+
+        <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-md); padding: 14px; display: inline-block;">
+          <span class="caption-uppercase" style="color: #5fa657; font-weight: 500;">
+            AUTONOMOUS FINANCING DECISION ENGINE → ACTION
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. SECTION: FROM PHYSICAL ASSET TO CASH -->
+    <section class="problem-section" id="asset-to-cash" style="text-align: center;">
+      <span class="section-eyebrow">THE COMPLETE LIFECYCLE HORIZON</span>
+      <h2 class="section-headline" style="font-size: clamp(34px, 5vw, 56px);">
+        FINANCE THE LIFECYCLE — NOT JUST THE INVOICE.
+      </h2>
+      <p class="section-description" style="margin: 0 auto 40px;">
+        A continuous financial intelligence layer that travels with the physical supply-chain asset from purchase order inception to final bank cash realization.
+      </p>
+
+      <div class="problem-card-grid-3" style="text-align: left; margin-bottom: 40px;">
+        <div class="problem-glass-card">
+          <span class="card-tag">PHASE 1: INCEPTION</span>
+          <h4 class="card-title">ASSET ONBOARDING</h4>
+          <p class="body-sm">PO issued → Raw material staged → Pre-shipment credit line granted under verified supplier reliability.</p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">PHASE 2: TRANSIT & DWELL</span>
+          <h4 class="card-title">DYNAMIC COLLATERAL</h4>
+          <p class="body-sm">Ocean voyage & warehouse dwell monitored → Dynamic interest spread & borrowing limit adjust to ground reality.</p>
+        </div>
+
+        <div class="problem-glass-card">
+          <span class="card-tag">PHASE 3: SETTLEMENT</span>
+          <h4 class="card-title">CASH REALIZATION</h4>
+          <p class="body-sm">Proof of Delivery rendered → Receivables factored → Waterfall debt paydown → Cryptographic lien released.</p>
+        </div>
+      </div>
+
+      <a href="/simulator" class="button-primary" style="text-decoration: none; padding: 18px 40px; font-size: 15px; letter-spacing: 3px;">
+        LAUNCH WORKING CAPITAL SIMULATOR STUDIO ↗
+      </a>
+    </section>
+
+    <!-- 13. FINAL SECTION: THE CHALLENGE -->
+    <section class="problem-section" id="challenge">
+      <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-lg); padding: 48px 36px;">
+        <span class="section-eyebrow" style="color: #ffffff;">HACKATHON OBJECTIVE & SPECIFICATION</span>
+        <h2 class="section-headline" style="font-size: 36px;">THE CHALLENGE</h2>
+        <p class="body-md" style="font-size: 19px; color: #ffffff; max-width: 960px; line-height: 1.6;">
+          “Design and build an agentic financing system that continuously tracks the economic lifecycle of physical supply-chain assets and dynamically determines how those assets should be financed as their physical, financial, and contractual states evolve.”
+        </p>
+
+        <div class="challenge-req-grid">
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">LIFECYCLE TRACKING</span>
+            <p class="body-sm" style="margin-top: 8px;">Continuous state tracking across 9 discrete physical stages.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">TRI-PARTY REASONING</span>
+            <p class="body-sm" style="margin-top: 8px;">Joint reasoning across Physical, Financial, and Contractual states.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">DYNAMIC DECISIONS</span>
+            <p class="body-sm" style="margin-top: 8px;">Autonomous instrument selection and deployable credit limit sizing.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">RISK REASSESSMENT</span>
+            <p class="body-sm" style="margin-top: 8px;">Dynamic interest rate spreads adjusting to physical bottlenecks.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">INSTRUMENT TRANSITIONS</span>
+            <p class="body-sm" style="margin-top: 8px;">Rolling debt facilities as asset crosses custody milestones.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">COLLATERAL AWARENESS</span>
+            <p class="body-sm" style="margin-top: 8px;">Cryptographic prevention of double-financing and duplicate claims.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">MULTI-SOURCE RECONCILIATION</span>
+            <p class="body-sm" style="margin-top: 8px;">Reconciliation of noisy, delayed, and conflicting telemetry feeds.</p>
+          </div>
+
+          <div class="challenge-req-card">
+            <span class="challenge-check-icon">✓</span>
+            <span class="caption-uppercase" style="color: #ffffff;">EVENT-DRIVEN DEFENSE</span>
+            <p class="body-sm" style="margin-top: 8px;">Deterministic sub-5ms propagation and capital risk adjustments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bugatti Footer (Austere Black with Centered Wordmark) -->
+  <footer class="bugatti-footer">
+    <div class="footer-inner">
+      <div class="footer-columns">
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">PROBLEM STATEMENT</span>
+          <p class="body-sm">IEEE HACKVERSE 2026 — Building a Competitive Capital Market for Supply-Chain Working Capital.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">ARCHITECTURE</span>
+          <p class="body-sm">Directed Acyclic Graph (DAG) + Telemetry Telematics + Dynamic Interest Yield Curve + Consensus Registry.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TECH STACK</span>
+          <p class="body-sm">Python FastAPI, NetworkX, D3.js, Web Speech Voice Synthesis, Vanta.js 3D WebGL Canvas.</p>
+        </div>
+        <div>
+          <span class="caption-uppercase" style="color: #ffffff; display: block; margin-bottom: 12px;">TEAM & SOURCE</span>
+          <p class="body-sm">TECHIEMECHIE (VIT Chennai Freshers). <a href="https://www.linkedin.com/company/143088470" target="_blank" rel="noopener noreferrer" class="text-link" style="font-size: 11px;">Connect on LinkedIn ↗</a></p>
+        </div>
+      </div>
+
+      <div class="footer-legal-row">
+        <span class="caption-uppercase" style="font-size: 10px;">COPYRIGHT © 2026 NODE-X-LOGISTICS. ALL RIGHTS RESERVED.</span>
+        <span class="wordmark" style="font-size: 12px; letter-spacing: 5px;">NODE-X-LOGISTICS</span>
+        <span class="caption-uppercase" style="font-size: 10px;">IEEE HACKVERSE 2026 • REQUIREMENT 1-8 COMPLIANT</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js + Vanta 3D NET Background Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="/js/vanta.net.min.js"></script>
+  <script src="/js/background.js"></script>
+
+  <!-- Problem Explorer Interactive Controller -->
+  <script src="/js/problem.js"></script>
+
+</body>
+</html>
