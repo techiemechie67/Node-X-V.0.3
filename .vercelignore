@@ -10,5 +10,8 @@ __pycache__
 .pytest_cache
 .venv
 venv
-backend/__pycache__
-backend/.pytest_cache
+backend
+api
+scripts
+tests
+*.md
