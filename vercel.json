@@ -1,13 +1,7 @@
 {
-  "name": "node-x-logistics",
-  "services": {
-    "frontend": {
-      "root": "./",
-      "buildCommand": "npm run build",
-      "outputDirectory": "dist",
-      "framework": "vite"
-    }
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
 
 
