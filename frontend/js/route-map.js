@@ -5713,43 +5713,306 @@
     analyzeRoute(fromId, toId, problem);
   }
 
-  function analyzeRoute(fromId, toId, problemText) {
+  // --- 10. REAL-TIME HYBRID AI DISRUPTION INTELLIGENCE & GRAPH OPTIMIZATION ---
+  const GROQ_PRIMARY_KEY = "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";
+  const GROQ_FAILOVER_KEY = "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";
+  const GROQ_MODEL_NAME = "openai/gpt-oss-120b";
+
+  function extractConstraintsDeterministicNLP(problemText) {
+    const text = (problemText || "").toLowerCase();
+    const affectedRegions = [];
+    const blockedStraits = [];
+    const blockedModes = [];
+    let preferredMode = "ANY";
+    const keywords = [];
+    let severity = "HIGH";
+    let disruptionType = "GENERAL_RISK";
+    let preference = "BALANCED";
+
+    // ── INDIAN OCEAN / ARABIAN SEA / BAY OF BENGAL / INDIA ──────────────────
+    if (text.includes("indian ocean") || text.includes("india ocean") || text.includes("arabian sea") || text.includes("bay of bengal") || text.includes("laccadive sea") || (text.includes("india") && (text.includes("war") || text.includes("conflict") || text.includes("hostilit") || text.includes("missile")))) {
+      affectedRegions.push("Indian Ocean", "Arabian Sea", "Bay of Bengal");
+      blockedStraits.push("strait of hormuz", "bab-el-mandeb strait", "strait of malacca");
+      keywords.push("indian ocean", "india ocean", "arabian sea", "bay of bengal", "colombo", "maldives", "oman", "hormuz", "malacca", "singapore", "sri lanka", "chennai", "karachi", "chittagong", "myanmar", "yangon");
+      blockedModes.push("SEA");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preferredMode = "RAIL";
+      preference = "SAFEST";
+    }
+
+    // ── SOUTH CHINA SEA / TAIWAN STRAIT / EAST ASIA ─────────────────────────
+    if (text.includes("south china") || text.includes("taiwan") || text.includes("east china sea") || text.includes("yellow sea") || text.includes("philippines sea")) {
+      affectedRegions.push("South China Sea", "Taiwan Strait", "East China Sea");
+      blockedStraits.push("taiwan strait", "luzon strait");
+      keywords.push("south china sea", "taiwan", "manila", "hong kong", "shanghai", "korea", "japan", "philippines", "luzon", "kaohsiung", "busan");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preferredMode = "AIR";
+      preference = "SAFEST";
+    }
+
+    // ── STRAIT OF HORMUZ / PERSIAN GULF ─────────────────────────────────────
+    if (text.includes("hormuz") || text.includes("persian gulf") || text.includes("gulf of oman") || text.includes("iran") || text.includes("iraq") || text.includes("kuwait") || text.includes("bahrain") || text.includes("qatar")) {
+      affectedRegions.push("Strait of Hormuz", "Persian Gulf", "Gulf of Oman");
+      blockedStraits.push("strait of hormuz");
+      keywords.push("hormuz", "persian gulf", "iran", "gulf", "jebel ali", "dubai", "abu dhabi", "muscat", "salalah", "bandar", "mundra", "karachi");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preference = "SAFEST";
+    }
+
+    // ── SUEZ CANAL / RED SEA / BAB-EL-MANDEB ────────────────────────────────
+    if (text.includes("suez") || text.includes("red sea") || text.includes("bab-el-mandeb") || text.includes("bab el mandeb") || text.includes("yemen") || text.includes("houthi") || text.includes("djibouti") || text.includes("egypt") || text.includes("aden")) {
+      affectedRegions.push("Suez Canal", "Red Sea", "Bab-el-Mandeb Strait", "Gulf of Aden");
+      blockedStraits.push("suez canal", "bab-el-mandeb strait");
+      keywords.push("suez", "red sea", "bab-el-mandeb", "djibouti", "aden", "jeddah", "port sudan", "eritrea", "egypt");
+      disruptionType = (text.includes("block") || text.includes("drought")) ? "CANAL_BLOCKADE" : "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preference = "SAFEST";
+    }
+
+    // ── PANAMA CANAL / CENTRAL AMERICA ──────────────────────────────────────
+    if (text.includes("panama") || text.includes("gatun") || text.includes("canal draft") || text.includes("central america")) {
+      affectedRegions.push("Panama Canal", "Caribbean Sea");
+      blockedStraits.push("panama canal");
+      keywords.push("panama", "colon", "gatun", "central america");
+      disruptionType = text.includes("drought") ? "WEATHER_DROUGHT" : "CANAL_BLOCKADE";
+      severity = "HIGH";
+    }
+
+    // ── STRAIT OF MALACCA / SINGAPORE / SOUTHEAST ASIA ──────────────────────
+    if (text.includes("malacca") || text.includes("singapore strait") || text.includes("piracy") || text.includes("lombok strait") || text.includes("sunda strait") || text.includes("banda sea") || text.includes("indonesia")) {
+      affectedRegions.push("Strait of Malacca", "Southeast Asia Maritime");
+      blockedStraits.push("strait of malacca", "singapore strait");
+      keywords.push("malacca", "singapore", "indonesia", "piracy", "port klang", "batam", "medan", "penang", "lombok", "sunda");
+      disruptionType = "PIRACY";
+      severity = "HIGH";
+    }
+
+    // ── MEDITERRANEAN SEA / BOSPHORUS / BLACK SEA ────────────────────────────
+    if (text.includes("mediterranean") || text.includes("bosphorus") || text.includes("black sea") || text.includes("aegean") || text.includes("dardanelles") || text.includes("sicily") || text.includes("gibraltar") || text.includes("italy") || text.includes("greece") || text.includes("turkey") || text.includes("ukraine") || text.includes("russia war")) {
+      affectedRegions.push("Mediterranean Sea", "Black Sea", "Bosphorus Strait");
+      blockedStraits.push("bosphorus strait", "strait of gibraltar");
+      keywords.push("mediterranean", "bosphorus", "black sea", "istanbul", "athens", "piraeus", "genoa", "barcelona", "marseille", "naples", "valencia", "constanta", "odessa", "ukraine", "novorossiysk");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+    }
+
+    // ── PACIFIC OCEAN ────────────────────────────────────────────────────────
+    if (text.includes("pacific ocean") || text.includes("north pacific") || text.includes("south pacific") || text.includes("transpacific") || text.includes("pacific war")) {
+      affectedRegions.push("Pacific Ocean", "North Pacific", "South Pacific");
+      blockedStraits.push("taiwan strait", "luzon strait", "torres strait");
+      keywords.push("pacific", "honolulu", "guam", "anchorage", "tokyo", "yokohama", "busan", "shanghai", "los angeles", "long beach", "seattle", "vancouver", "sydney", "auckland", "singapore");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preferredMode = "RAIL";
+    }
+
+    // ── ATLANTIC OCEAN ───────────────────────────────────────────────────────
+    if (text.includes("atlantic ocean") || text.includes("north atlantic") || text.includes("south atlantic") || text.includes("transatlantic") || text.includes("atlantic war") || text.includes("gulf of mexico")) {
+      affectedRegions.push("Atlantic Ocean", "North Atlantic", "South Atlantic");
+      blockedStraits.push("strait of gibraltar", "english channel", "drake passage");
+      keywords.push("atlantic", "rotterdam", "hamburg", "antwerp", "london", "new york", "baltimore", "houston", "santos", "buenos aires", "durban", "cape town", "dakar", "casablanca", "canary");
+      disruptionType = "MILITARY_CONFLICT";
+      severity = "CRITICAL";
+      preferredMode = "AIR";
+    }
+
+    // ── AIRSPACE CLOSURES / EURASIAN ─────────────────────────────────────────
+    if (text.includes("airspace") || text.includes("air space") || text.includes("no fly zone") || text.includes("fly zone") || text.includes("siberia") || text.includes("russian airspace") || text.includes("ukraine war") || text.includes("nato")) {
+      affectedRegions.push("Eurasian Airspace", "Trans-Siberian Corridor");
+      keywords.push("airspace", "russia", "siberia", "ukraine", "closure", "ban");
+      disruptionType = "AIRSPACE_CLOSURE";
+      blockedModes.push("AIR");
+      if (preferredMode === "ANY") preferredMode = "RAIL";
+      severity = "CRITICAL";
+    }
+
+    // ── EXPLICIT MODAL PREFERENCE DETECTION ──────────────────────────────────
+    if (text.includes("air cargo") || text.includes("air freight") || text.includes("aviation") || text.includes("aircraft") || text.includes("fly") || text.includes("flight") || text.includes("charter")) {
+      preferredMode = "AIR";
+    } else if (text.includes("rail") || text.includes("railway") || text.includes("train") || text.includes("landbridge") || text.includes("silk road") || text.includes("belt and road")) {
+      preferredMode = "RAIL";
+    } else if ((text.includes("vessel") || text.includes("ship") || text.includes("container ship") || text.includes("bulk carrier") || text.includes("oil tanker") || text.includes("cargo ship")) && !blockedModes.includes("SEA")) {
+      preferredMode = "SEA";
+    }
+
+    if (blockedModes.includes("SEA") && preferredMode === "SEA") {
+      preferredMode = "RAIL";
+    }
+
+    if (affectedRegions.length === 0) {
+      affectedRegions.push("General Risk Corridor");
+    }
+
+    const aiThreatSummary = `Threat detection identified ${disruptionType.replace(/_/g, " ")} affecting: ${affectedRegions.slice(0, 3).join(", ")}. Circumventing active hazard corridors and routing via optimal ${preferredMode} multi-modal corridor.`;
+
+    return {
+      disruption_type: disruptionType,
+      severity: severity,
+      affected_regions: affectedRegions,
+      blocked_straits_or_chokepoints: blockedStraits,
+      blocked_transport_modes: blockedModes,
+      preferred_transport_mode: preferredMode,
+      keyword_identifiers: keywords,
+      user_routing_preference: preference,
+      ai_threat_summary: aiThreatSummary,
+      ai_engine_source: "DETERMINISTIC_NLP_ENGINE"
+    };
+  }
+
+  async function extractConstraintsWithGroqAI(fromNode, toNode, problemText) {
+    if (!problemText || problemText.trim().length < 3) return null;
+    const prompt = `Analyze this logistics disruption and return ONLY a JSON object.
+
+ORIGIN: ${fromNode.name} (${fromNode.type}) in ${fromNode.location}
+DESTINATION: ${toNode.name} (${toNode.type}) in ${toNode.location}
+DISRUPTION: "${problemText}"
+
+Rules:
+- Identify ALL blocked oceans/seas/straits/regions/airspace
+- If any ocean/sea is blocked by war/hostilities: add "SEA" to blocked_transport_modes, set preferred_transport_mode to "RAIL" or "AIR"
+- keyword_identifiers = lowercase location names in the blocked zones
+
+Return ONLY this JSON (no markdown, no extra text):
+{"disruption_type":"MILITARY_CONFLICT|WEATHER_DROUGHT|CANAL_BLOCKADE|AIRSPACE_CLOSURE|PORT_STRIKE|PIRACY|GENERAL_RISK","severity":"CRITICAL|HIGH|MODERATE|LOW","affected_regions":["..."],"blocked_straits_or_chokepoints":["..."],"blocked_transport_modes":["SEA"|"AIR"|"RAIL"],"preferred_transport_mode":"SEA|RAIL|AIR|ANY","keyword_identifiers":["..."],"user_routing_preference":"FASTEST|CHEAPEST|SAFEST|BALANCED","ai_threat_summary":"..."}`;
+
+    const keys = [GROQ_PRIMARY_KEY, GROQ_FAILOVER_KEY];
+    for (const key of keys) {
+      if (!key) continue;
+      try {
+        const resp = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${key}`
+          },
+          body: JSON.stringify({
+            model: GROQ_MODEL_NAME,
+            messages: [
+              { role: "system", content: "You are a geopolitical logistics risk analyst. You MUST respond with ONLY a raw JSON object." },
+              { role: "user", content: prompt }
+            ],
+            temperature: 0.0,
+            max_tokens: 1500
+          })
+        });
+
+        if (resp.ok) {
+          const data = await resp.json();
+          let raw = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || "";
+          raw = raw.replace(/^```[a-z]*\s*/i, "").replace(/```\s*$/i, "").trim();
+          const match = raw.match(/\{[\s\S]*\}/);
+          if (match) raw = match[0];
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.disruption_type) {
+            parsed.ai_engine_source = "GROQ_LIVE_OPENAI_GPT-OSS-120B";
+            return parsed;
+          }
+        }
+      } catch (err) {
+        console.warn("[Route AI Client] Direct Groq API call notice:", err);
+      }
+    }
+    return null;
+  }
+
+  function applyQualityGate(aiParsed, nlp) {
+    if (!aiParsed) return nlp;
+    const res = Object.assign({}, aiParsed);
+    if (res.disruption_type === "GENERAL_RISK" && nlp.disruption_type !== "GENERAL_RISK") {
+      res.disruption_type = nlp.disruption_type;
+      res.severity = nlp.severity;
+      res.user_routing_preference = nlp.user_routing_preference;
+    }
+    const aiReg = res.affected_regions || [];
+    const nlpReg = nlp.affected_regions || [];
+    res.affected_regions = Array.from(new Set(aiReg.concat(nlpReg)));
+
+    const aiStr = res.blocked_straits_or_chokepoints || [];
+    const nlpStr = nlp.blocked_straits_or_chokepoints || [];
+    res.blocked_straits_or_chokepoints = Array.from(new Set(aiStr.concat(nlpStr)));
+
+    const aiMod = res.blocked_transport_modes || [];
+    const nlpMod = nlp.blocked_transport_modes || [];
+    res.blocked_transport_modes = Array.from(new Set(aiMod.concat(nlpMod)));
+
+    if (!res.preferred_transport_mode || res.preferred_transport_mode === "ANY") {
+      if (nlp.preferred_transport_mode && nlp.preferred_transport_mode !== "ANY") {
+        res.preferred_transport_mode = nlp.preferred_transport_mode;
+      }
+    }
+    if (res.blocked_transport_modes.includes("SEA") && res.preferred_transport_mode === "SEA") {
+      res.preferred_transport_mode = "RAIL";
+    }
+
+    const aiKw = res.keyword_identifiers || [];
+    const nlpKw = nlp.keyword_identifiers || [];
+    res.keyword_identifiers = Array.from(new Set(aiKw.concat(nlpKw)));
+    return res;
+  }
+
+  async function analyzeRoute(fromId, toId, problemText) {
     if (isAnalyzing) return;
     isAnalyzing = true;
-
     setLoadingState(true);
 
-    const payload = {
-      from_node_id: fromId,
-      to_node_id: toId,
-      problem: problemText || ""
-    };
+    const fromNode = NODES_MAP[fromId];
+    const toNode = NODES_MAP[toId];
 
-    fetch("/api/routes/analyze", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        return res.json();
-      })
-      .then((result) => {
-        currentAnalysisResult = result;
-        renderAnalysisResults(result);
-        drawOptimalRouteOnMap(result);
-      })
-      .catch((err) => {
-        console.warn("[Route Engine Notice] Backend live analyze error, using client graph optimizer fallback.", err);
-        const clientResult = clientSideRouteOptimizer(fromId, toId, problemText);
-        currentAnalysisResult = clientResult;
-        renderAnalysisResults(clientResult);
-        drawOptimalRouteOnMap(clientResult);
-      })
-      .finally(() => {
-        isAnalyzing = false;
-        setLoadingState(false);
-      });
+    try {
+      // 1. Try local backend endpoint first if available (silent fallback if not hosted)
+      let backendSuccess = false;
+      try {
+        const ctrl = new AbortController();
+        const timeoutId = setTimeout(() => ctrl.abort(), 1000);
+        const res = await fetch("/api/routes/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            from_node_id: fromId,
+            to_node_id: toId,
+            problem: problemText || ""
+          }),
+          signal: ctrl.signal
+        });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const result = await res.json();
+          if (result && result.optimal_path && result.optimal_path.length > 0) {
+            currentAnalysisResult = result;
+            renderAnalysisResults(result);
+            drawOptimalRouteOnMap(result);
+            backendSuccess = true;
+          }
+        }
+      } catch (_) {
+        // Backend offline on static Vercel host — seamless client AI engine execution
+      }
+
+      if (backendSuccess) return;
+
+      // 2. Direct browser-side AI Disruption Extraction with openai/gpt-oss-120b
+      const nlpConstraints = extractConstraintsDeterministicNLP(problemText);
+      let aiConstraints = null;
+      if (problemText && problemText.trim().length > 3) {
+        aiConstraints = await extractConstraintsWithGroqAI(fromNode, toNode, problemText);
+      }
+
+      const mergedConstraints = applyQualityGate(aiConstraints, nlpConstraints);
+
+      // 3. Compute Pareto-optimal multi-modal graph path across 150 nodes
+      const clientResult = clientSideRouteOptimizerWithConstraints(fromId, toId, mergedConstraints);
+      currentAnalysisResult = clientResult;
+      renderAnalysisResults(clientResult);
+      drawOptimalRouteOnMap(clientResult);
+    } catch (err) {
+      console.error("[Route Intelligence] Route calculation error:", err);
+    } finally {
+      isAnalyzing = false;
+      setLoadingState(false);
+    }
   }
 
   function setLoadingState(loading) {
@@ -6044,7 +6307,7 @@
   }
 
   // --- 13. CLIENT-SIDE ADVANCED DIJKSTRA & MULTI-MODAL GRAPH OPTIMIZER ---
-  function clientSideRouteOptimizer(fromId, toId, problemText) {
+  function clientSideRouteOptimizerWithConstraints(fromId, toId, constraints) {
     const fromNode = NODES_MAP[fromId];
     const toNode = NODES_MAP[toId];
     if (!fromNode || !toNode) {
@@ -6070,60 +6333,22 @@
         carrying_cost_usd: 0,
         risk_score: 0.05,
         risk_level: "LOW",
-        ai_analysis: "Origin and destination are identical. Zero transit required."
+        ai_analysis: "Origin and destination are identical. Zero transit required.",
+        ai_constraints: constraints || {}
       };
     }
 
-    const text = (problemText || "").toLowerCase();
-
-    // 1. Disruption Constraint Analysis
-    const blockedStraits = [];
-    const keywords = [];
-    const affectedRegions = [];
-    const blockedModes = [];
-    let preferredMode = "ANY";
-    let disruptionType = "GENERAL_RISK";
-
-    if (text.includes("hormuz") || text.includes("persian gulf") || text.includes("iran") || text.includes("oman")) {
-      blockedStraits.push("strait of hormuz");
-      keywords.push("hormuz", "persian gulf", "iran");
-      affectedRegions.push("Strait of Hormuz", "Persian Gulf");
-      disruptionType = "MILITARY_CONFLICT";
-    }
-    if (text.includes("suez") || text.includes("red sea") || text.includes("bab-el-mandeb") || text.includes("yemen") || text.includes("houthi")) {
-      blockedStraits.push("suez canal", "bab-el-mandeb strait");
-      keywords.push("suez", "red sea", "bab-el-mandeb");
-      affectedRegions.push("Suez Canal", "Red Sea");
-      disruptionType = "CANAL_BLOCKADE";
-    }
-    if (text.includes("panama") || text.includes("gatun") || text.includes("drought")) {
-      blockedStraits.push("panama canal");
-      keywords.push("panama", "drought", "gatun");
-      affectedRegions.push("Panama Canal");
-      disruptionType = "WEATHER_DROUGHT";
-    }
-    if (text.includes("malacca") || text.includes("singapore strait") || text.includes("piracy")) {
-      blockedStraits.push("strait of malacca");
-      keywords.push("malacca", "piracy");
-      affectedRegions.push("Strait of Malacca");
-      disruptionType = "PIRACY";
-    }
-    if (text.includes("airspace") || text.includes("fly zone") || text.includes("siberia") || text.includes("russian airspace") || text.includes("missile threat")) {
-      blockedModes.push("AIR");
-      affectedRegions.push("Eurasian Airspace");
-      disruptionType = "AIRSPACE_CLOSURE";
-    }
-
-    if (text.includes("ocean") || text.includes("sea") || text.includes("maritime") || text.includes("vessel") || text.includes("shipment") || text.includes("oil")) {
-      preferredMode = "SEA";
-    } else if (text.includes("air") || text.includes("flight") || text.includes("aviation") || text.includes("express")) {
-      preferredMode = "AIR";
-    } else if (text.includes("rail") || text.includes("train") || text.includes("landbridge")) {
-      preferredMode = "RAIL";
-    }
+    const aiConstraints = constraints || {};
+    const blockedStraits = (aiConstraints.blocked_straits_or_chokepoints || []).map(s => s.toLowerCase());
+    const keywords = (aiConstraints.keyword_identifiers || []).map(k => k.toLowerCase());
+    const affectedRegions = (aiConstraints.affected_regions || []).map(r => r.toLowerCase());
+    const blockedModes = aiConstraints.blocked_transport_modes || [];
+    let preferredMode = aiConstraints.preferred_transport_mode || "ANY";
+    const disruptionType = aiConstraints.disruption_type || "GENERAL_RISK";
+    const userPref = aiConstraints.user_routing_preference || "BALANCED";
 
     if (preferredMode === "ANY") {
-      if (fromNode.type === "SEA" && toNode.type === "SEA") preferredMode = "SEA";
+      if (fromNode.type === "SEA" && toNode.type === "SEA" && !blockedModes.includes("SEA")) preferredMode = "SEA";
       else if (fromNode.type === "AIR" && toNode.type === "AIR") preferredMode = "AIR";
       else if (fromNode.type === "RAIL" && toNode.type === "RAIL") preferredMode = "RAIL";
     }
@@ -6148,22 +6373,12 @@
       if (!isBlocked) {
         for (const kw of keywords) {
           if (kw.length > 2 && (nName.includes(kw) || nLoc.includes(kw) || nReg.includes(kw))) {
-            isBlocked = true;
-            break;
+            if (node.type === "SEA" || disruptionType === "MILITARY_CONFLICT") {
+              isBlocked = true;
+              break;
+            }
           }
         }
-      }
-      if (!isBlocked && (blockedStraits.some(s => s.includes("hormuz")) || keywords.some(k => k.includes("hormuz")))) {
-        if (node.id === "sea_04" || node.id === "sea_38") isBlocked = true;
-      }
-      if (!isBlocked && (blockedStraits.some(s => s.includes("suez") || s.includes("red sea")) || keywords.some(k => k.includes("suez") || k.includes("red sea")))) {
-        if (node.id === "sea_02" || node.id === "sea_05") isBlocked = true;
-      }
-      if (!isBlocked && (blockedStraits.some(s => s.includes("panama")) || keywords.some(k => k.includes("panama")))) {
-        if (node.id === "sea_03" || node.id === "sea_48") isBlocked = true;
-      }
-      if (!isBlocked && (blockedStraits.some(s => s.includes("malacca")) || keywords.some(k => k.includes("malacca")))) {
-        if (node.id === "sea_01") isBlocked = true;
       }
 
       if (isBlocked) {
@@ -6174,10 +6389,12 @@
 
     // 3. Multi-Objective Pareto Weights
     let wTime = 0.35, wCost = 0.35, wRisk = 0.30;
-    if (preferredMode === "SEA") {
-      wTime = 0.30; wCost = 0.50; wRisk = 0.20;
-    } else if (preferredMode === "AIR") {
+    if (userPref === "FASTEST" || preferredMode === "AIR") {
       wTime = 0.60; wCost = 0.20; wRisk = 0.20;
+    } else if (userPref === "CHEAPEST" && !blockedModes.includes("SEA")) {
+      wTime = 0.20; wCost = 0.60; wRisk = 0.20;
+    } else if (userPref === "SAFEST" || disruptionType === "MILITARY_CONFLICT") {
+      wTime = 0.25; wCost = 0.25; wRisk = 0.50;
     } else if (preferredMode === "RAIL") {
       wTime = 0.35; wCost = 0.40; wRisk = 0.25;
     }
@@ -6190,7 +6407,7 @@
       const u = e.u;
       const v = e.v;
       const eMode = e.mode;
-      const eName = e.name.toLowerCase();
+      const eName = (e.name || "").toLowerCase();
 
       let isEdgeBlocked = blockedNodeIds.has(u) || blockedNodeIds.has(v);
       if (!isEdgeBlocked) {
@@ -6198,22 +6415,30 @@
           if (eName.includes(s)) { isEdgeBlocked = true; break; }
         }
       }
-      if (!isEdgeBlocked && eName.includes("hormuz") && keywords.some(k => k.includes("hormuz"))) isEdgeBlocked = true;
-      if (!isEdgeBlocked && (eName.includes("suez") || eName.includes("red sea") || eName.includes("bab-el-mandeb")) && keywords.some(k => k.includes("suez") || k.includes("red sea"))) isEdgeBlocked = true;
-      if (!isEdgeBlocked && eName.includes("panama") && keywords.some(k => k.includes("panama"))) isEdgeBlocked = true;
 
-      const penaltyMultiplier = isEdgeBlocked ? 300.0 : 1.0;
-      const effectiveRisk = isEdgeBlocked ? 0.98 : (e.base_risk || 0.05);
+      // If SEA is explicitly blocked (e.g. War in Indian Ocean), block all pure sea edges in affected zone
+      if (!isEdgeBlocked && blockedModes.includes("SEA") && eMode === "SEA") {
+        isEdgeBlocked = true;
+      }
+      if (!isEdgeBlocked && blockedModes.includes("AIR") && eMode === "AIR") {
+        isEdgeBlocked = true;
+      }
+      if (!isEdgeBlocked && blockedModes.includes("RAIL") && eMode === "RAIL") {
+        isEdgeBlocked = true;
+      }
+
+      const penaltyMultiplier = isEdgeBlocked ? 50000.0 : 1.0;
+      const effectiveRisk = isEdgeBlocked ? 0.99 : (e.base_risk || 0.05);
 
       let modePrefFactor = 1.0;
       if (preferredMode !== "ANY" && eMode !== preferredMode && eMode !== "INTERMODAL") {
-        modePrefFactor = 3.5;
+        modePrefFactor = 2.5;
       }
       const isIntermodal = (eMode === "INTERMODAL");
-      const intermodalPenalty = isIntermodal ? 2.0 : 1.0;
+      const intermodalPenalty = isIntermodal ? 1.0 : 1.0;
 
-      const normCost = e.freight_cost_usd / 10000.0;
-      const normTime = e.transit_days / 7.0;
+      const normCost = (e.freight_cost_usd || 3000.0) / 10000.0;
+      const normTime = (e.transit_days || 2.0) / 7.0;
       const normRisk = effectiveRisk * 15.0;
 
       const weight = (wCost * normCost + wTime * normTime + wRisk * normRisk) * penaltyMultiplier * modePrefFactor * intermodalPenalty;
@@ -6222,11 +6447,12 @@
         to: v,
         weight: weight,
         edge: e,
-        effectiveRisk: effectiveRisk
+        effectiveRisk: effectiveRisk,
+        isBlocked: isEdgeBlocked
       });
     });
 
-    // 5. Dijkstra Algorithm (Min-Heap / Priority Queue)
+    // 5. Dijkstra Algorithm
     const dist = {};
     const prev = {};
     const unvisited = new Set(RAW_150_NODES.map(n => n.id));
@@ -6329,8 +6555,9 @@
     const pathSummaryStr = optimalPath.map(n => n.name).join(" → ");
 
     let aiReasoning = "";
-    if (blockedNodes.length > 0) {
-      aiReasoning = `STRATEGIC ROUTE VERDICT: Circumvented active ${disruptionType.replace(/_/g, " ")} (${avoidedNames.join(", ")}). Computed Pareto-optimal corridor via ${pathSummaryStr}. Landed freight locked at $${totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} across ${totalTime.toFixed(1)} transit days (${riskLevel} Risk Profile).`;
+    if (blockedNodes.length > 0 || (aiConstraints.affected_regions && aiConstraints.affected_regions.length > 0)) {
+      const aff = (aiConstraints.affected_regions || []).slice(0, 2).join(", ") || avoidedNames.join(", ") || "Active Conflict Zone";
+      aiReasoning = `STRATEGIC ROUTE VERDICT: Circumvented active ${disruptionType.replace(/_/g, " ")} (${aff}). Computed Pareto-optimal corridor via ${pathSummaryStr}. Landed freight locked at $${totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} across ${totalTime.toFixed(1)} transit days (${riskLevel} Risk Profile).`;
     } else {
       aiReasoning = `OPTIMAL ROUTE COMPUTED: Operating along nominal global corridors. The selected pathway (${pathSummaryStr}) achieves optimal equilibrium between transit velocity (${totalTime.toFixed(1)} days) and capital efficiency ($${totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}).`;
     }
@@ -6349,8 +6576,14 @@
       carrying_cost_usd: carryingCost,
       risk_score: compositeRisk,
       risk_level: riskLevel,
-      ai_analysis: aiReasoning
+      ai_analysis: aiReasoning,
+      ai_constraints: aiConstraints
     };
+  }
+
+  function clientSideRouteOptimizer(fromId, toId, problemText) {
+    const nlp = extractConstraintsDeterministicNLP(problemText);
+    return clientSideRouteOptimizerWithConstraints(fromId, toId, nlp);
   }
 
   // --- 14. PRESET SHOCKS ---
@@ -6565,7 +6798,9 @@
     setDestination: setDestination,
     analyzeCurrentSelection: analyzeCurrentSelection,
     applyPresetScenario: applyPresetScenario,
-    getNodes: () => RAW_150_NODES
+    getNodes: () => RAW_150_NODES,
+    calculateRoute: clientSideRouteOptimizer,
+    extractConstraints: extractConstraintsDeterministicNLP
   };
 
   // Auto-initialize when ready

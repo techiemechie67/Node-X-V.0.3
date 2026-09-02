@@ -105,7 +105,9 @@ function initGraph() {
 }
 
 function initLedger() {
-  ledgerViewInstance = new LedgerView("ledgerEntriesList", "activeLocksList", "ledgerCountBadge");
+  if (typeof LedgerView !== "undefined") {
+    ledgerViewInstance = new LedgerView("ledgerEntriesList", "activeLocksList", "ledgerCountBadge");
+  }
 }
 
 // Load Network Template (Standalone via MockEngine)
