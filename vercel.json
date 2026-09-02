@@ -1,29 +1,27 @@
 {
-    "services": {
-        "frontend": {
-            "root": ".",
-            "framework": "vite"
-        },
-        "backend": {
-            "root": "backend",
-            "runtime": "python@3.9",
-            "entrypoint": "run.py"
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "version": 2,
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "framework": "vite",
+    "env": {
+        "PYTHONUNBUFFERED": "1"
+    },
+    "functions": {
+        "api/**.py": {
+            "runtime": "python3.9",
+            "memory": 1024,
+            "maxDuration": 60
         }
     },
-    "rewrites": [
+    "routes": [
         {
-            "source": "/api(/.*)?",
-            "destination": {
-                "type": "service",
-                "service": "backend"
-            }
+            "src": "/api/(.*)",
+            "dest": "/api/index.py"
         },
         {
-            "source": "/(.*)",
-            "destination": {
-                "type": "service",
-                "service": "frontend"
-            }
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }
