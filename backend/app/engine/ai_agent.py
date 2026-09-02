@@ -114,20 +114,18 @@ async def generate_decision_explanation(asset_state: Any, deterministic_decision
         amount_formatted = str(approved_amount)
 
     # 3. Check client readiness and execute Groq completion
-    global client
+    primary_key = os.getenv("GROQ_API_KEY", "").strip()
+    failover_key = os.getenv("GROQ_API_KEY_1", "").strip()
+    base_url = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1").strip()
+    model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b").strip()
 
-    current_key = os.getenv("GROQ_API_KEY", "").strip()
+    keys_to_try = []
+    if primary_key and primary_key != "your_key_here":
+        keys_to_try.append(("PRIMARY", primary_key))
+    if failover_key and failover_key != "your_key_here" and failover_key != primary_key:
+        keys_to_try.append(("FAILOVER", failover_key))
 
-    if client is None and AsyncOpenAI is not None and current_key:
-        client = AsyncOpenAI(
-        api_key=current_key,
-        base_url=os.getenv(
-            "GROQ_BASE_URL",
-            "https://api.groq.com/openai/v1"
-        ).strip()
-    )
-
-    if client is None:
+    if not keys_to_try or AsyncOpenAI is None:
         return fallback_reasoning  
  
     system_prompt = (
@@ -148,24 +146,27 @@ async def generate_decision_explanation(asset_state: Any, deterministic_decision
         f"Provide a concise, 2-sentence professional underwriter summary explaining why this financing decision was made."
     )
 
-    try:
-        response = await client.chat.completions.create(
-            model=os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"),
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.3,
-            max_tokens=300,
-            timeout=10.0
-        )
-        content = (response.choices[0].message.content or "").strip()
-        if content:
-            return content
-        return fallback_reasoning
-    except Exception:
-        # Fallback to the original deterministic reasoning string on any API error or timeout
-        return fallback_reasoning
+    for key_label, eff_key in keys_to_try:
+        for try_model in [model_name, "openai/gpt-oss-120b", "qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]:
+            try:
+                live_client = AsyncOpenAI(api_key=eff_key, base_url=base_url)
+                response = await live_client.chat.completions.create(
+                    model=try_model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    temperature=0.3,
+                    max_tokens=1024,
+                    timeout=15.0
+                )
+                content = (response.choices[0].message.content or "").strip()
+                if content:
+                    return content
+            except Exception as e:
+                print(f"[Groq Explanation Notice] {key_label} with {try_model} failed: {e}")
+
+    return fallback_reasoning
 
 
 UNDERWRITER_SYSTEM_PROMPT = """You are the Autonomous Supply-Chain Underwriter AI for Node-X-Logistics. Your objective is to track the economic lifecycle of physical supply-chain assets and dynamically determine how those assets should be financed as their physical, financial, and contractual states evolve.
@@ -211,7 +212,7 @@ async def underwrite_supply_chain_agent(
     primary_key = (api_key or os.getenv("GROQ_API_KEY", "")).strip()
     failover_key = os.getenv("GROQ_API_KEY_1", "").strip()
     base_url = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1").strip()
-    model_name = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b").strip()
+    model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b").strip()
 
     keys_to_try = []
     if primary_key and primary_key != "your_key_here":
@@ -227,7 +228,7 @@ async def underwrite_supply_chain_agent(
             user_content = f"User Strategic Query / Parameter Override: \"{query}\"\n\nLive Supply Chain Telemetry Payload:\n{user_content}"
 
         for key_label, eff_key in keys_to_try:
-            for try_model in [model_name, "qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]:
+            for try_model in [model_name, "openai/gpt-oss-120b", "qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]:
                 try:
                     live_client = AsyncOpenAI(api_key=eff_key, base_url=base_url)
                     response = await live_client.chat.completions.create(
@@ -237,7 +238,7 @@ async def underwrite_supply_chain_agent(
                             {"role": "user", "content": user_content}
                         ],
                         temperature=0.1,
-                        max_tokens=1024,
+                        max_tokens=1500,
                         timeout=15.0
                     )
                     raw_json = (response.choices[0].message.content or "").strip()

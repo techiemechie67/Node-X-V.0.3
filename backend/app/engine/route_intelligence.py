@@ -33,7 +33,7 @@ except ImportError:
 GROQ_API_KEY   = os.getenv("GROQ_API_KEY",   "").strip()
 GROQ_API_KEY_1 = os.getenv("GROQ_API_KEY_1", "").strip()
 GROQ_BASE_URL  = os.getenv("GROQ_BASE_URL",  "https://api.groq.com/openai/v1").strip()
-GROQ_MODEL     = os.getenv("GROQ_MODEL",     "qwen/qwen3.8-27b").strip()
+GROQ_MODEL     = os.getenv("GROQ_MODEL",     "openai/gpt-oss-120b").strip()
 
 print(f"[Route AI] Primary key loaded: {bool(GROQ_API_KEY)} | Failover key loaded: {bool(GROQ_API_KEY_1)} | Model: {GROQ_MODEL}")
 
@@ -3177,8 +3177,8 @@ async def _call_groq_llm(api_key: str, prompt: str, model_name: Optional[str] = 
             {"role": "user", "content": prompt}
         ],
         temperature=0.0,
-        max_tokens=1024,
-        timeout=12.0
+        max_tokens=1500,
+        timeout=15.0
     )
     raw = (response.choices[0].message.content or "").strip()
     if not raw:
@@ -3258,7 +3258,7 @@ async def extract_constraints_with_ai(from_node: Dict[str, Any], to_node: Dict[s
 
         return parsed
 
-    candidate_models = [GROQ_MODEL, "qwen/qwen3.8-27b", "qwen/qwen3.6-27b", "groq/compound"]
+    candidate_models = [GROQ_MODEL, "openai/gpt-oss-120b", "qwen/qwen3.8-27b", "qwen/qwen3.6-27b", "groq/compound"]
     seen_models = []
     for m in candidate_models:
         if m and m not in seen_models:

@@ -308,7 +308,7 @@
         <div class="ai-pulse-dot"></div>
         <div>
           <span class="caption-uppercase" style="color: #38bdf8; letter-spacing: 1.5px;">AUTONOMOUS AI UNDERWRITER COMPUTING PARETO-OPTIMAL ROUTE & CAPITAL ALLOCATION...</span>
-          <p class="body-sm" style="color: var(--muted); margin-top: 4px;">Evaluating multi-modal transit days, quality preservation index, and DeepSeek autonomous underwriting decision for "${query.slice(0, 45)}".</p>
+          <p class="body-sm" style="color: var(--muted); margin-top: 4px;">Evaluating multi-modal transit days, quality preservation index, and OpenAI GPT-OSS-120B autonomous underwriting decision for "${query.slice(0, 45)}".</p>
         </div>
       </div>
     `;
@@ -487,7 +487,8 @@
     const action = res.action || "Transition";
     const riskLevel = res.riskScoreLevel || (res.qualityScore < 90 ? "Moderate" : "Low");
     const reasoning = res.autoReasoning || res.verdict;
-    const isLiveDeepSeek = res.engineSource === "DEEPSEEK_LIVE";
+    const isLiveAI = Boolean(res.engineSource && (res.engineSource.includes("GROQ") || res.engineSource.includes("OPENAI") || res.engineSource.includes("LIVE")));
+    const engineLabel = res.engineSource ? res.engineSource.replace(/_/g, " ") : "AUTONOMOUS UNDERWRITER";
 
     let actionColor = "#10b981";
     if (action === "Reject") actionColor = "#ef4444";
@@ -506,8 +507,8 @@
                 <span class="status-badge-mono" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">
                   RISK: ${riskLevel.toUpperCase()}
                 </span>
-                <span class="status-badge-mono" style="color: ${isLiveDeepSeek ? '#10b981' : '#a0a0a0'}; border-color: ${isLiveDeepSeek ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255,255,255,0.2)'};">
-                  ${isLiveDeepSeek ? 'DEEPSEEK V3 LIVE' : 'UNDERWRITER ENGINE'}
+                <span class="status-badge-mono" style="color: ${isLiveAI ? '#10b981' : '#a0a0a0'}; border-color: ${isLiveAI ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255,255,255,0.2)'};">
+                  ${isLiveAI ? engineLabel : 'UNDERWRITER ENGINE'}
                 </span>
                 ${
                   res.webhookTrigger && res.webhookTrigger.execute
