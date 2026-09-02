@@ -5962,33 +5962,36 @@ Return ONLY this JSON (no markdown, no extra text):
     const toNode = NODES_MAP[toId];
 
     try {
-      // 1. Try local backend endpoint first if available (silent fallback if not hosted)
+      // 1. Try local backend endpoint only when on localhost / local development
       let backendSuccess = false;
-      try {
-        const ctrl = new AbortController();
-        const timeoutId = setTimeout(() => ctrl.abort(), 1000);
-        const res = await fetch("/api/routes/analyze", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            from_node_id: fromId,
-            to_node_id: toId,
-            problem: problemText || ""
-          }),
-          signal: ctrl.signal
-        });
-        clearTimeout(timeoutId);
-        if (res.ok) {
-          const result = await res.json();
-          if (result && result.optimal_path && result.optimal_path.length > 0) {
-            currentAnalysisResult = result;
-            renderAnalysisResults(result);
-            drawOptimalRouteOnMap(result);
-            backendSuccess = true;
+      const isLocalhost = Boolean(window.location && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"));
+      if (isLocalhost) {
+        try {
+          const ctrl = new AbortController();
+          const timeoutId = setTimeout(() => ctrl.abort(), 1000);
+          const res = await fetch("/api/routes/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              from_node_id: fromId,
+              to_node_id: toId,
+              problem: problemText || ""
+            }),
+            signal: ctrl.signal
+          });
+          clearTimeout(timeoutId);
+          if (res.ok) {
+            const result = await res.json();
+            if (result && result.optimal_path && result.optimal_path.length > 0) {
+              currentAnalysisResult = result;
+              renderAnalysisResults(result);
+              drawOptimalRouteOnMap(result);
+              backendSuccess = true;
+            }
           }
+        } catch (_) {
+          // Local backend offline — proceed to client AI engine
         }
-      } catch (_) {
-        // Backend offline on static Vercel host — seamless client AI engine execution
       }
 
       if (backendSuccess) return;
