@@ -1,0 +1,10 @@
+{
+    "buildCommand": "pip install -r requirements.txt",
+    "runtime": "python@3.9",
+    "functions": {
+        "run.py": {
+            "memory": 1024,
+            "maxDuration": 60
+        }
+    }
+}
